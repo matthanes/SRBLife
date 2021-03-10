@@ -12,22 +12,9 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            rel="preload"
-            as="style"
             href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
-          />
-          <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
-            media="print"
-            onLoad="this.media='all'"
           />
-          <noscript>
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
-            />
-          </noscript>
         </Head>
         <body>
           <Main />

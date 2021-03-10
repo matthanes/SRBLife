@@ -5,9 +5,9 @@ import Home from "../pages";
 const links = [
   { name: "Home", target: "/" },
   { name: "Calendar", target: "/calendar" },
-  { name: "Our Beliefs", target: "/our-beliefs" },
+  { name: "Our Beliefs", target: "/ourbeliefs" },
   { name: "Salvation", target: "/salvation" },
-  { name: "Our Purpose", target: "/our-purpose" },
+  { name: "Our Purpose", target: "/ourpurpose" },
   { name: "Giving", target: "/giving" },
 ];
 
