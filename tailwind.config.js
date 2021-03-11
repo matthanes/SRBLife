@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#003D7E",
+        primary: "#003D7E", //dark blue
+        secondary: "#3f4b57", //charcoal
       },
       fontFamily: {
         "rock-salt": '"Rock Salt", cursive',
+        headings: '"Roboto", sans-serif',
+        bodytext: '"Poppins", sans-serif',
       },
     },
   },
