@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Salavation() {
+export default function Salvation() {
   return (
     <div className="flex justify-center">
       <Head>

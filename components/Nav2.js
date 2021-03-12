@@ -67,12 +67,12 @@ const Nav2 = () => {
               <div className="flex-shrink-0 flex items-center">
                 <img
                   className="block lg:hidden h-20 w-auto"
-                  src="img/SRB-White-01.svg"
+                  src="../img/SRB-White-01.svg"
                   alt="Workflow"
                 />
                 <img
                   className="hidden lg:block h-20 w-auto"
-                  src="img/SRB-White-01.svg"
+                  src="../img/SRB-White-01.svg"
                   alt="Workflow"
                 />
               </div>
