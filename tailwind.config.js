@@ -12,6 +12,10 @@ module.exports = {
         headings: '"Roboto", sans-serif',
         bodytext: '"Poppins", sans-serif',
       },
+
+      backgroundImage: theme => ({
+        'bible': "url('../img/Bible-Full-Width2.jpg')",
+       })
     },
   },
   variants: {
