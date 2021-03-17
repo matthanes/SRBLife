@@ -80,7 +80,7 @@ const Nav2 = () => {
                 <div className="flex space-x-8">
                   {links.map((link) => (
                     <li
-                      className="list-none text-gray-100 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md font-rock-salt text-md font-medium"
+                      className="list-none text-gray-100 hover:bg-secondary hover:text-white px-3 py-2 rounded-md font-rock-salt text-md font-medium"
                       key={link.name}
                     >
                       <Link href={link.target}>{link.name}</Link>
