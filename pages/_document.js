@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en" className="overflow-y-scroll">
+      <Html lang="en" className="overflow-y-scroll scrollbar">
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
