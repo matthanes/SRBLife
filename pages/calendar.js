@@ -3,7 +3,7 @@ import Head from 'next/head'
 export default function Calendar() {
 
   return (
-    <div className="container px-8 md:px-20">
+    <div className="container mx-auto px-8 md:px-20">
       <Head>
         <title>Schomburg Road Baptist Church Columbus Georgia - Calendar</title>
         <meta name='keywords' content='beliefs, doctrine'/>

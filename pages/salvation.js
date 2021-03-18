@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 export default function Salvation() {
   return (
-    <div className="bg-bible bg-fixed bg-center">
+    <div className="bg-bible bg-fixed bg-cover bg-center">
       <Head>
         <title>Schomburg Road Baptist Church Columbus Georgia - Salvation</title>
         <meta name='keywords' content='beliefs, doctrine'/>
