@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from "next/link";
 
 const Homecard = ({title, subtitle, icon, target, href}) => {
