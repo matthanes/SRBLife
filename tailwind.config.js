@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
@@ -13,10 +15,14 @@ module.exports = {
         bodytext: '"Poppins", sans-serif',
       },
 
-      backgroundImage: theme => ({
-        'bible': "url('../img/Bible-Full-Width2.jpg')",
-        'map': "url('../img/missions.jpg')",
-       })
+      backgroundImage: (theme) => ({
+        bible: "url('../img/Bible-Full-Width2.jpg')",
+        map: "url('../img/missions.jpg')",
+      }),
+    },
+    screens: {
+      xs: "375px",
+      ...defaultTheme.screens,
     },
   },
   variants: {
