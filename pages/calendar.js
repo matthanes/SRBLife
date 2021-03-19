@@ -16,7 +16,7 @@ export default function Calendar() {
       <iframe
         className="mx-auto mt-8"
         src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=c3JibGlmZUBnbWFpbC5jb20&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23007bb6&amp;color=%237986CB&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0"
-        width="800"
+        width="100%"
         height="600"
         frameBorder="0"
         scrolling="no"
