@@ -37,23 +37,23 @@ export default function OurPurpose() {
       </div>
 
       <div className="bg-white text-secondary text-xl font-bodytext font-medium py-8 lg:px-64 md:px-20 sm:px-16">
-        <p className="px-6 py-4 md:text-left sm:text-justify ">
+        <p className="px-6 py-4 md:text-left text-justify ">
           That is our purpose at Schomburg Road Baptist Church. Everything we do
           is driven from these six short words written above. By understanding
           this statement you will better understand who we are.
         </p>
-        <p className="px-6 md:text-left sm:text-justify py-4">
+        <p className="px-6 md:text-left text-justify py-4">
           In Loving Him, we will seek to love our Lord with all of our heart,
           mind, and soul. This includes being in the center of His will at all
           times. It is our purpose to glorify Him in all that we do in worship
           and service.
         </p>
-        <p className="px-6 md:text-left sm:text-justify py-4">
+        <p className="px-6 md:text-left text-justify py-4">
           We can be about Loving Them because He first loved us. In all that we
           do, we desire to be vessels of His love. Starting with our families,
           to our neighbors, and to all of the world.
         </p>
-        <p className="px-6 md:text-left sm:text-justify py-4">
+        <p className="px-6 md:text-left text-justify py-4">
           God is in the business of Changing Lives. We seek to see God change
           the lives of others by our influence and leadership through a growing
           relationship at all levels. This mission will be accomplished by
