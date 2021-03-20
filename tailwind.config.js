@@ -18,12 +18,22 @@ module.exports = {
       backgroundImage: (theme) => ({
         bible: "url('../img/Bible-Full-Width2.jpg')",
         map: "url('../img/missions.jpg')",
+        srblive: "url('../img/SRBLive.jpg')",
+        church: "url('../img/church.jpg')",
       }),
     },
     screens: {
       xs: "375px",
       ...defaultTheme.screens,
     },
+    minHeight: {
+      '0': '0',
+      '1/4': '25vh',
+      '1/2': '50vh',
+      '3/4': '75vh',
+      'full': '100vh',
+      'screen': 'calc(100vh - 60px)'
+     },
   },
   variants: {
     extend: {},
