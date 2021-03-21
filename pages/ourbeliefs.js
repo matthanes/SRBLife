@@ -15,24 +15,24 @@ export default function OurBeliefs() {
         Our <span className="font-light">Beliefs</span>
       </h1>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         The Bible
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl md:text-left text-justify">
         <strong>The Bible</strong> is the God-given,
         accurate, reliable, permanent and complete, authority for personal
         growth in Christ.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Nature of God
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         There is <strong>only one God</strong>. Through
         the <strong>Trinity</strong>, He reveals
         Himself to us as Father, Son and Holy Spirit:
       </p>
-      <ul className="list-disc pl-8 list-outside font-bodytext text-xl  md:text-left text-justify">
+      <ul className="list-disc px-8 md:px-36 lg:px-72 list-outside font-bodytext text-xl md:text-left text-justify">
         <li className="mt-2 mb-4 mx-6">
           <strong>Father God</strong> cares for His
           creation and loves mankind unconditionally.
@@ -51,20 +51,20 @@ export default function OurBeliefs() {
         </li>
       </ul>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Mankind
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>Mankind</strong> was made in God’s own
         image as male and female and was the pinnacle work of creation. By their
         free choice they sinned against God thus bringing sin into the human
         race, yet human life is sacred and unique to God.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Salvation
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>Salvation</strong> involves the
         redemption of the whole person and is offered freely to all who believe
         by placing their faith in Jesus Christ alone as their Savior, who by His
@@ -73,10 +73,10 @@ export default function OurBeliefs() {
         and glorification.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Baptism
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>Baptism</strong> is the immersion of a
         believer in water. It is an act of obedience symbolizing the believer’s
         faith in a crucified, buried, and risen Savior, the believer’s death to
@@ -85,36 +85,36 @@ export default function OurBeliefs() {
         rather a demonstration of salvation.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         The Lord's Supper
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>The Lord's Supper</strong> is a
         symbolic act of obedience whereby believers remember the death and
         anticipate His second coming.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Evangelism and Missions
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>Evangelism & Missions</strong> is the
         responsibility of every follower of Christ and therefore the church is
         to make disciples of all nations by sharing the Gospel and by a
         Christian lifestyle.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         The Last Days
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
       In <strong>the Last Days</strong>, God, in His own time and in His own way, will bring the world to end as we know it now. Jesus Christ will return personally and visibly and the dead will be raised; and Christ will judge all men in righteousness. The unrighteous will be consigned to Hell. The righteous will receive their reward and will dwell forever in Heaven with the Lord.
       </p>
 
-      <h2 className="mt-8 lg:px-32 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
+      <h2 className="mt-8 md:px-36 lg:px-72 md:px-12 px-6 font-headings font-light tracking-wider text-3xl text-primary uppercase">
         Cooperation
       </h2>
-      <p className="mt-4 px-6 font-bodytext text-xl  md:text-left text-justify">
+      <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
         <strong>Cooperation</strong> with Christians should organize to cooperate for the Kingdom of God. These organizations have no authority over one another or over the churches. Cooperation is desirable between the various Christian denominations.
       </p>
     </div>
