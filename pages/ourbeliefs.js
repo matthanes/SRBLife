@@ -2,7 +2,7 @@ import Head from "next/head";
 
 export default function OurBeliefs() {
   return (
-    <div>
+    <div className="mb-12">
       <Head>
         <title>
           Schomburg Road Baptist Church Columbus Georgia - Our Beliefs

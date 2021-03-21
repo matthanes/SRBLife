@@ -4,17 +4,15 @@ import Head from "next/head";
 
 export default function Giving() {
   return (
-    <div>
-      <Head>
+    <div className="bg-primary">
+      <Head> 
         <title>Schomburg Road Baptist Church Columbus Georgia - Giving</title>
         <meta name="keywords" content="beliefs, doctrine" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="container mx-auto px-8 md:px-20 mt-4 mb-4 font-headings font-black text-4xl text-secondary border-b-2">
-        Giving
-      </h1>
-      <div className="h-screen bg-primary">
+
+      <div className="min-h-screen-foot">
         <div className="text-4xl md:text-6xl bg-primary text-white text-center font-headings lg:px-32 md:px-12 py-8 lg:py-20 px-4 flex flex-wrap justify-center">
           <div className="text-4xl md:text-6xl inline-flex items-center px-1.5 md:px-3 py-2 md:py-0.5 border-2 border-white rounded-full font-semibold leading-4 bg-white text-primary">
             3

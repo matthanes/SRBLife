@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         primary: "#003D7E", //dark blue
         secondary: "#3f4b57", //charcoal
+        dark: "#2D2D2D",
       },
       fontFamily: {
         "rock-salt": '"Rock Salt", cursive',
@@ -27,13 +28,14 @@ module.exports = {
       ...defaultTheme.screens,
     },
     minHeight: {
-      '0': '0',
-      '1/4': '25vh',
-      '1/2': '50vh',
-      '3/4': '75vh',
-      'full': '100vh',
-      'screen': 'calc(100vh - 60px)'
-     },
+      0: "0",
+      "1/4": "25vh",
+      "1/2": "50vh",
+      "3/4": "75vh",
+      "full": "100vh",
+      "screen": "calc(100vh - 60px)",
+      "screen-foot": "calc(100vh - 192px)",
+    },
   },
   variants: {
     extend: {},
