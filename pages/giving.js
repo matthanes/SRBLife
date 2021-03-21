@@ -16,7 +16,7 @@ export default function Giving() {
       </h1>
       <div className="h-screen bg-primary">
         <div className="text-4xl md:text-6xl bg-primary text-white text-center font-headings lg:px-32 md:px-12 py-8 lg:py-20 px-4 flex flex-wrap justify-center">
-          <div class="text-4xl md:text-6xl inline-flex items-center px-1.5 md:px-3 py-2 md:py-0.5 border-2 border-white rounded-full font-semibold leading-4 bg-white text-primary">
+          <div className="text-4xl md:text-6xl inline-flex items-center px-1.5 md:px-3 py-2 md:py-0.5 border-2 border-white rounded-full font-semibold leading-4 bg-white text-primary">
             3
           </div>
           <div className="font-rock-salt text-3xl lg:text-5xl pl-4 lg:pl-6 self-center">
