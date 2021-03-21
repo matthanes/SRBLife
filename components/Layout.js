@@ -1,17 +1,13 @@
-import Nav from './Nav'
-import Nav2 from './Nav2'
+import Nav from "./Nav";
+import Nav2 from "./Nav2";
 
-const Layout = ( {children} ) => {
-    return (
-        <>
-        <Nav2 />
-        <div className="mx-auto">
-            <main>
-                {children}
-            </main>
-        </div>
-        </>
-    )
-}
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Nav2 />
+      <main className="mx-auto">{children}</main>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
