@@ -27,6 +27,7 @@ export default function Home() {
             icon={<FaMapMarkedAlt className="block mx-auto" size="100"/>}
             target="_blank"
             href="https://goo.gl/maps/6vrJMr3Cd86JH3do9"
+            rel="noopener"
           />
           <Homecard
             title="Sunday Worship"
@@ -76,6 +77,7 @@ export default function Home() {
             icon={<FaFacebook className="block mx-auto" size="100"/>}
             target="_blank"
             href="https://www.facebook.com/SRBLife"
+            rel="noopener"
           />
 
           <Homecard
@@ -84,6 +86,7 @@ export default function Home() {
             icon={<FaYoutube className="block mx-auto" size="100"/>}
             target="_blank"
             href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/"
+            rel="noopener"
           />
         </div>
       </div>
