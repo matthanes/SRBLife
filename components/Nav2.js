@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Home from "../pages";
 
 const links = [
   { name: "Home", target: "/" },
@@ -97,6 +96,7 @@ const Nav2 = () => {
               <li
                 className="text-center list-none text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
                 key={link.name}
+                onClick={() => setNavOpen(!navOpen)}
               >
                 <Link href={link.target}>{link.name}</Link>
               </li>
