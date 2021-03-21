@@ -33,18 +33,18 @@ export default function OurBeliefs() {
         Himself to us as Father, Son and Holy Spirit:
       </p>
       <ul className="list-disc pl-8 list-outside font-bodytext text-lg  md:text-left text-justify">
-        <li className="mt-2 mb-4 ml-6">
+        <li className="mt-2 mb-4 mx-6">
           <strong>Father God</strong> cares for His
           creation and loves mankind unconditionally.
         </li>
-        <li className="mb-4 ml-6">
+        <li className="mb-4 mx-6">
           The <strong>Son</strong>, the historical
           Jesus of Nazareth, is eternal. He was born of a virgin, died on the
           cross, physically rose from the dead, is alive today and is seated
           next to God the Father. Through His death, He provided salvation to
           all who believe.
         </li>
-        <li className="mb-4 ml-6">
+        <li className="mb-4 mx-6">
           The <strong>Holy Spirit</strong> is the
           essence of a personal God who enlightens all men of their need for God
           and empowers those who believe.
