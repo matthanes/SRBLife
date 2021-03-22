@@ -7,7 +7,9 @@ const Footer = () => {
                   alt="Workflow"
                 />
           <div className="font-bodytext py-8 text-white w-full lg:w-1/3">
-            &copy; Schomburg Road Baptist Church
+            &copy; Schomburg Road Baptist Church <br />
+            7155 Schomburg Road<br />
+            Columbus, GA 31909
           </div>
           <div className="w-full text-white lg:w-1/3">
               <span className="font-bold">Sundays</span>
