@@ -98,7 +98,7 @@ export default function OurBeliefs() {
         Evangelism and Missions
       </h2>
       <p className="mt-4 px-6 md:px-36 lg:px-72 md:px-12 font-bodytext text-xl  md:text-left text-justify">
-        <strong>Evangelism & Missions</strong> is the
+        <strong>Evangelism & Missions</strong> are the
         responsibility of every follower of Christ and therefore the church is
         to make disciples of all nations by sharing the Gospel and by a
         Christian lifestyle.
