@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="bg-dark text-white text-center lg:px-40 md:px-12 px-4 flex flex-wrap justify-center items-center">
+        <div className="bg-dark text-white text-center px-4 md:px-12 xl:px-40 flex flex-wrap justify-center items-center">
           <img
                   className="block h-32 w-full lg:w-1/3"
                   src="../img/SRB-White-01.svg"
