@@ -4,7 +4,7 @@ const Footer = () => {
           <img
                   className="block h-32 w-full lg:w-1/3"
                   src="../img/SRB-White-01.svg"
-                  alt="Workflow"
+                  alt="SRB Logo"
                 />
           <div className="font-bodytext py-8 text-white w-full lg:w-1/3">
             &copy; Schomburg Road Baptist Church <br />
