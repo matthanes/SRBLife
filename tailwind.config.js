@@ -17,7 +17,6 @@ module.exports = {
       },
 
       backgroundImage: (theme) => ({
-        bible: "url('../img/Bible-Full-Width2.jpg')",
         map: "url('../img/missions.jpg')",
         srblive: "url('../img/SRBLive.jpg')",
         church: "url('../img/church.jpg')",
