@@ -11,7 +11,7 @@ const Footer = () => {
             7155 Schomburg Road<br />
             Columbus, GA 31909
           </div>
-          <div className="w-full text-white lg:w-1/3">
+          <div className="w-full text-white pb-6 lg:pb-0 lg:w-1/3">
               <span className="font-bold">Sundays</span>
               <ul className="text-center">
                   <li>09:15 AM Sunday School</li>
