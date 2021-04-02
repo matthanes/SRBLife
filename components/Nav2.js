@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const links = [
   { name: "Home", target: "/" },
-  { name: "Calendar", target: "/calendar/index.html" },
-  { name: "Our Beliefs", target: "/ourbeliefs/index.html" },
-  { name: "Salvation", target: "/salvation/index.html" },
-  { name: "Our Purpose", target: "/ourpurpose/index.html" },
-  { name: "Giving", target: "/giving/index.html" },
+  { name: "Calendar", target: "/calendar", as:"/calendar/index.html" },
+  { name: "Our Beliefs", target: "/ourbeliefs", as:"/ourbeliefs/index.html"  },
+  { name: "Salvation", target: "/salvation", as:"/salvation/index.html"  },
+  { name: "Our Purpose", target: "/ourpurpose", as:"/ourpurpose/index.html"  },
+  { name: "Giving", target: "/giving", as:"/giving/index.html"  },
 ];
 
 const Nav2 = () => {
@@ -82,7 +82,7 @@ const Nav2 = () => {
                       className="list-none text-gray-100 hover:bg-secondary hover:text-white px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
                       key={link.name}
                     >
-                      <Link href={link.target}>{link.name}</Link>
+                      <Link href={link.target} as={link.as}>{link.name}</Link>
                     </li>
                   ))}
                 </div>
@@ -98,7 +98,7 @@ const Nav2 = () => {
                 key={link.name}
                 onClick={() => setNavOpen(!navOpen)}
               >
-                <Link href={link.target}>{link.name}</Link>
+                <Link href={link.target} as={link.as}>{link.name}</Link>
               </li>
             ))}
           </div>
