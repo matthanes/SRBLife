@@ -22,7 +22,7 @@ export default function Home() {
         />
         <meta
           name="description"
-          content="Loving Him, loving them, changing lives! That is our purpose at Schomburg Road Baptist Church. Everything we do is driven from these six short words. By understanding this statement you will better understand who we are."
+          content="Loving Him, loving them, changing lives! That is our purpose at Schomburg Road Baptist Church in Columbus, Georgia. Everything we do is driven from these six short words. By understanding this statement you will better understand who we are."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
