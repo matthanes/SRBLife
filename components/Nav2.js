@@ -76,7 +76,7 @@ const Nav2 = () => {
                 />
               </div>
               <div className="hidden self-center lg:block sm:ml-6">
-                <div className="flex space-x-8">
+                <ul className="flex space-x-8">
                   {links.map((link) => (
                     <li
                       className="list-none text-gray-100 hover:bg-secondary hover:text-white px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
@@ -85,7 +85,7 @@ const Nav2 = () => {
                       <Link href={link.target} as={link.as}>{link.name}</Link>
                     </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
