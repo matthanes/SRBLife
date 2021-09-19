@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="bg-srblive bg-bottom min-h-1/2 bg-cover lg:min-h-3/4 xl:min-h-screen"></div>
+        <div className="bg-srblive bg-bottom min-h-1/2 bg-cover lg:min-h-3/4 xl:min-h-screen"><span className="hidden">SRBLive</span></div>
       </a>
       <div className="container my-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
