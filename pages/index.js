@@ -1,4 +1,7 @@
 import Homecard from "../components/Homecard";
+import Image from 'next/image'
+import SRBLive from '../public/img/SRBLive.jpg'
+
 import {
   FaClock,
   FaEnvelope,
@@ -26,8 +29,11 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live" aria-label="LiveLink">
-        <div className="bg-srblive bg-bottom min-h-1/2 bg-cover lg:min-h-3/4 xl:min-h-screen"></div>
+        <div className="min-h-1/2 max-h-screen lg:min-h-3/4 xl:min-h-screen">
+        <Image layout="fill" objectFit="cover" objectPosition="bottom" src={SRBLive} alt="Click To Watch SRB Live!"/>
+        </div>
       </a>
       <div className="container my-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">

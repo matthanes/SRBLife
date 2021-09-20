@@ -35,6 +35,15 @@ module.exports = {
       "screen": "calc(100vh - 60px)",
       "screen-foot": "calc(100vh - 192px)",
     },
+    maxHeight: {
+      0: "0",
+      "1/4": "25vh",
+      "1/2": "50vh",
+      "3/4": "75vh",
+      "full": "100vh",
+      "screen": "calc(100vh - 60px)",
+      "screen-foot": "calc(100vh - 192px)",
+    },
   },
   variants: {
     extend: {},
