@@ -20,6 +20,7 @@ module.exports = {
         map: "url('../img/missions.jpg')",
         srblive: "url('../img/SRBLive.jpg')",
         church: "url('../img/church.jpg')",
+        vbs: "url('../img/vbs2022.png')",
       }),
     },
     screens: {
@@ -31,8 +32,8 @@ module.exports = {
       "1/4": "25vh",
       "1/2": "50vh",
       "3/4": "75vh",
-      "full": "100vh",
-      "screen": "calc(100vh - 60px)",
+      full: "100vh",
+      screen: "calc(100vh - 60px)",
       "screen-foot": "calc(100vh - 192px)",
     },
   },
