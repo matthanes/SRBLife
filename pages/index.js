@@ -8,7 +8,7 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Head from "next/head";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-1/3 w-full">
-        <Image
+        <ExportedImage
           alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
           src="/img/vbs2022.png"
           width={1920}
