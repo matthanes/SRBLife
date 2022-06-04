@@ -33,6 +33,7 @@ export default function Home() {
           width={1920}
           height={870}
           objectFit="cover"
+          priority={true}
         />
       </div>
       <div className="container my-12 mx-auto px-4 md:px-12">
