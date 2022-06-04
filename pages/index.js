@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://kideventpro.lifeway.com/myEvent/?id=64376">
-        <div className="min-h-1/4 w-full bg-black text-center">
+        <div className="w-full bg-black text-center xs:min-h-1/4 md:min-h-1/2 lg:min-h-screen">
           <ExportedImage
             alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
             src="/img/vbs2022.png"
