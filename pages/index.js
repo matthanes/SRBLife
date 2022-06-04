@@ -26,16 +26,18 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-1/4 w-full bg-black text-center">
-        <ExportedImage
-          alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
-          src="/img/vbs2022.png"
-          width={1920}
-          height={870}
-          objectFit="cover"
-          priority={true}
-        />
-      </div>
+      <a href="https://kideventpro.lifeway.com/myEvent/?id=64376">
+        <div className="min-h-1/4 w-full bg-black text-center">
+          <ExportedImage
+            alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
+            src="/img/vbs2022.png"
+            width={1920}
+            height={870}
+            objectFit="cover"
+            priority={true}
+          />
+        </div>
+      </a>
       <div className="container my-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           <Homecard
