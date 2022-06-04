@@ -26,7 +26,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-1/3 w-full">
+      <div className="min-h-1/4 w-full bg-black text-center">
         <ExportedImage
           alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
           src="/img/vbs2022.png"
