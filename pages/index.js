@@ -8,7 +8,7 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa";
-
+import Image from "next/image";
 import Head from "next/head";
 
 export default function Home() {
@@ -26,9 +26,15 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <a href="https://kideventpro.lifeway.com/myEvent/?id=64376" aria-label="LiveLink">
-        <div className="bg-vbs bg-left min-h-1/2 bg-cover lg:min-h-3/4 lg:bg-center xl:min-h-screen"></div>
-      </a>
+      <div className="min-h-1/3 w-full">
+        <Image
+          alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
+          src="/img/vbs2022.png"
+          width={1920}
+          height={870}
+          objectFit="cover"
+        />
+      </div>
       <div className="container my-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           <Homecard
