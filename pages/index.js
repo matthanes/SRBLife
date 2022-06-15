@@ -26,13 +26,13 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <a href="https://kideventpro.lifeway.com/myEvent/?id=64376">
+      <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
         <div className="w-full bg-black text-center min-h-1/4 xs:min-h-1/4 md:min-h-1/2 xl:min-h-screen">
           <ExportedImage
-            alt="Vacation Bible School June 6 - June 10 from 6:00pm to 9:00pm"
-            src="/img/vbs2022.png"
+            alt="SRB Live - Join us live on YouTube!"
+            src="/img/SRBLive.jpg"
             width={1920}
-            height={870}
+            height={1000}
             objectFit="cover"
             priority={true}
           />
