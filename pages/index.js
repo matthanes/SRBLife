@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="bg-white text-center min-h-1/4 xs:min-h-1/4 md:min-h-fit">
+        <div className="bg-white text-center min-h-1/4 xs:min-h-1/4 md:min-h-screen">
           <ExportedImage
             alt="SRB Live - Join us live on YouTube!"
             src="/img/SRBLive.jpg"
