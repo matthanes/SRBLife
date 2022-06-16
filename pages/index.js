@@ -27,18 +27,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="w-full bg-black text-center min-h-1/4 xs:min-h-1/4 md:min-h-1/2 xl:min-h-screen">
+        <div className="bg-white text-center min-h-1/4 xs:min-h-1/4 md:min-h-fit">
           <ExportedImage
             alt="SRB Live - Join us live on YouTube!"
             src="/img/SRBLive.jpg"
             width={1920}
-            height={1000}
+            height={900}
             objectFit="cover"
             priority={true}
           />
         </div>
       </a>
-      <div className="container my-12 mx-auto px-4 md:px-12">
+      <div className="container my-8 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           <Homecard
             title="7155 Schomburg Road"
