@@ -26,11 +26,11 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <a href="#">
-        <div className="bg-white text-center">
+      <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
+        <div className="bg-white text-center min-h-1/4 xs:min-h-1/4 md:min-h-screen">
           <ExportedImage
             alt="SRB Live - Join us live on YouTube!"
-            src="/img/SRBC_Fall-Invite-Card_2022.jpg"
+            src="/img/SRBLive.jpg"
             width={1920}
             height={900}
             objectFit="cover"
