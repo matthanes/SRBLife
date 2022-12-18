@@ -26,13 +26,13 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className='relative min-h-1/2 lg:min-h-3/4 xl:min-h-screen'>
+      <header className='relative min-h-1/3 sm:min-h-1/2 md:min-h-3/4 xl:min-h-screen'>
         <ExportedImage
           alt="Christmas Eve Candlelight Service 9:00PM"
           src="/img/candlelightservice.jpg"
           layout="fill"
           objectFit="cover"
-          objectPosition={"center bottom"}
+          objectPosition={'center bottom'}
           priority={true}
         />
       </header>
