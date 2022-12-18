@@ -68,6 +68,7 @@ const Nav2 = () => {
                   className="block lg:hidden h-20 w-auto"
                   src="../img/SRB-White-01.svg"
                   alt="Workflow"
+                  width="100%"
                 />
                 <img
                   className="hidden lg:block h-20 w-auto"
