@@ -1,4 +1,4 @@
-import Homecard from "../components/Homecard";
+import Homecard from '../components/Homecard';
 import {
   FaClock,
   FaEnvelope,
@@ -7,9 +7,9 @@ import {
   FaCalendar,
   FaFacebook,
   FaYoutube,
-} from "react-icons/fa";
-import ExportedImage from "next-image-export-optimizer";
-import Head from "next/head";
+} from 'react-icons/fa';
+import ExportedImage from 'next-image-export-optimizer';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -26,7 +26,17 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
+      <header className='relative min-h-1/2 lg:min-h-3/4 xl:min-h-screen'>
+        <ExportedImage
+          alt="Christmas Eve Candlelight Service 9:00PM"
+          src="/img/candlelightservice.jpg"
+          layout="fill"
+          objectFit="cover"
+          objectPosition={"center bottom"}
+          priority={true}
+        />
+      </header>
+      {/* <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
         <div className="bg-white text-center min-h-1/3 md:min-h-1/2 xl:min-h-screen">
           <ExportedImage
             alt="Christmas Eve Candlelight Service 9:00PM"
@@ -37,7 +47,7 @@ export default function Home() {
             priority={true}
           />
         </div>
-      </a>
+      </a> */}
       <div className="container my-8 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           <Homecard
