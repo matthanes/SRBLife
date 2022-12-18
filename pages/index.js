@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="bg-white text-center min-h-1/3 md:h-1/2 xl:h-screen">
+        <div className="bg-white text-center min-h-1/3 md:min-h-1/2 xl:min-h-screen">
           <ExportedImage
             alt="Christmas Eve Candlelight Service 9:00PM"
             src="/img/candlelightservice.jpg"
