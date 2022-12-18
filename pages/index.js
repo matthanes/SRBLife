@@ -27,10 +27,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="bg-white text-center min-h-1/4 xs:min-h-1/4 md:min-h-screen">
+        <div className="bg-white text-center min-h-1/3 md:h-1/2 xl:h-screen">
           <ExportedImage
-            alt="SRB Live - Join us live on YouTube!"
-            src="/img/SRBLive.jpg"
+            alt="Christmas Eve Candlelight Service 9:00PM"
+            src="/img/candlelightservice.jpg"
             width={1920}
             height={900}
             objectFit="cover"
