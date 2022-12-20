@@ -9,16 +9,17 @@
     "export": "next build && next export && next-image-export-optimizer"
   },
   "dependencies": {
-    "next": "^12.1.6",
-    "next-image-export-optimizer": "^0.10.1",
-    "next-pwa": "^5.3.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "eslint-config-next": "^13.0.7",
+    "next": "^13.0.7",
+    "next-image-export-optimizer": "^1.1.1",
+    "next-pwa": "^5.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.7",
-    "tailwindcss": "^2.0.3"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
   }
 }
