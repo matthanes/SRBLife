@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const links = [
   { name: "Home", target: "/" },
-  { name: "Calendar", target: "/calendar", as:"/calendar/index.html" },
-  { name: "Our Beliefs", target: "/ourbeliefs", as:"/ourbeliefs/index.html"  },
-  { name: "Salvation", target: "/salvation", as:"/salvation/index.html"  },
-  { name: "Our Purpose", target: "/ourpurpose", as:"/ourpurpose/index.html"  },
-  { name: "Giving", target: "/giving", as:"/giving/index.html"  },
+  { name: "Calendar", target: "/calendar" },
+  { name: "Our Beliefs", target: "/ourbeliefs" },
+  { name: "Salvation", target: "/salvation"  },
+  { name: "Our Purpose", target: "/ourpurpose"  },
+  { name: "Giving", target: "/giving"  },
 ];
 
 const Nav2 = () => {
