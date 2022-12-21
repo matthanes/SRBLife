@@ -55,11 +55,11 @@ const Nav2 = () => {
             </div>
           </div>
         </div>
-        <div className={(active ? " bg-primary w-full h-screen" : " hidden") + " lg:hidden"} id="mobile-menu">
+        <div className={(active ? " fixed bg-primary w-full h-screen " : " hidden") + " lg:hidden"} id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 mt-16">
             {links.map((link) => (
               <li
-                className="text-center list-none select-none text-gray-100 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
+                className="text-center list-none select-none text-gray-100 hover:bg-secondary hover:text-white block px-3 py-4 rounded-md font-rock-salt text-2xl font-semibold"
                 key={link.name}
                 onClick={() => setActive(!active)}
               >
