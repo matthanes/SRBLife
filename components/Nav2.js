@@ -94,7 +94,7 @@ const Nav2 = () => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((link) => (
               <li
-                className="text-center list-none text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
+                className="text-center list-none text-gray-100 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
                 key={link.name}
                 onClick={() => setNavOpen(!navOpen)}
               >
