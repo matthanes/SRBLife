@@ -36,7 +36,6 @@ const Slider = ({ slides, timing, children }) => {
         className={`z-0 object-cover ${objectPosition}`}
         src={imgLink}
         alt={alt}
-        onClick={goToLeft}
       ></ExportedImage>
 
       {/* Overlay */}
@@ -54,13 +53,13 @@ const Slider = ({ slides, timing, children }) => {
 
       {/* Arrows */}
       <button
-        className="bg-secondary bg-opacity-70 rounded-full z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 left-4 md:left-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
+        className="z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 left-4 md:left-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
         onClick={goToLeft}
       >
         ˂
       </button>
       <button
-        className="bg-secondary bg-opacity-70 rounded-full z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 right-4 md:right-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
+        className="z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 right-4 md:right-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
         onClick={goToRight}
       >
         ˃
