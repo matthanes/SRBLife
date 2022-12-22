@@ -1,4 +1,5 @@
 import Homecard from '../components/Homecard';
+import Slider from '../components/Slider';
 import {
   FaClock,
   FaEnvelope,
@@ -8,12 +9,45 @@ import {
   FaFacebook,
   FaYoutube,
 } from 'react-icons/fa';
-import ExportedImage from 'next-image-export-optimizer';
 import Head from 'next/head';
+
+import CandleLight from '../public/img/candlelightservice.jpg';
+import Live from '../public/img/SRBLive.jpg';
+import Musical from '../public/img/KidMusical.jpg';
+
+const slides = [
+  {
+    url: 'https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live',
+    title: 'SRB Live',
+    subtitle: 'SRB Live and In Person This Sunday!',
+    alt: 'SRB Live and In Person This Sunday!',
+    imgLink: Live,
+    opacity: 0,
+    objectPosition: 'object-center',
+  },
+  {
+    url: '',
+    title: 'Candlelight Service',
+    subtitle: 'Christmas Eve Candlelight Service 9:00 PM',
+    alt: 'Christmas Eve Candlelight Service 9:00 PM',
+    imgLink: CandleLight,
+    opacity: 0,
+    objectPosition: 'object-bottom',
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=Dp7o07dRpSQ',
+    title: '',
+    subtitle: '',
+    alt: 'Kid Christmas Musical. Click For Recording',
+    imgLink: Musical,
+    opacity: 0,
+    objectPosition: 'object-bottom',
+  },
+];
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>Schomburg Road Baptist Church Columbus Georgia - Home</title>
         <meta
@@ -27,13 +61,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="relative min-h-1/3 sm:min-h-1/2 md:min-h-3/4 xl:min-h-screen">
-        <ExportedImage
+        <Slider slides={slides} timing={5000}></Slider>
+        {/* <ExportedImage
           className="object-cover object-bottom"
           alt="Christmas Eve Candlelight Service 9:00PM"
           src="/img/candlelightservice.jpg"
           fill
           priority={true}
-        />
+        /> */}
       </header>
       {/* <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
         <div className="bg-white text-center min-h-1/3 md:min-h-1/2 xl:min-h-screen">
@@ -118,6 +153,6 @@ export default function Home() {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
