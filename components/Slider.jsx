@@ -24,33 +24,47 @@ const Slider = ({ slides, timing, children }) => {
     };
   }, [currentSlide]);
 
-  const { url, title, subtitle, alt, objectPosition, imgLink, opacity } = slides[currentSlide];
+  const { url, title, subtitle, alt, objectPosition, imgLink, opacity } =
+    slides[currentSlide];
 
   return (
     <div className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[75vh] lg:min-h-screen">
       {/* Image */}
-      <ExportedImage fill priority className={`z-0 object-cover ${objectPosition}`} src={imgLink} alt={alt} onClick={goToLeft}></ExportedImage>
+      <ExportedImage
+        fill
+        priority
+        className={`z-0 object-cover ${objectPosition}`}
+        src={imgLink}
+        alt={alt}
+        onClick={goToLeft}
+      ></ExportedImage>
 
       {/* Overlay */}
-      {/* Render anchor if url exists */}
       {url ? (
-        <a href={url}
-          className={`absolute top-0 left-0 h-full w-full bg-black opacity-${opacity}`}
+        <a
+          href={url}
+          className={`absolute top-0 left-1/2 -translate-x-1/2 h-full w-[80vw] bg-black opacity-${opacity}`}
         ></a>
       ) : (
-        <div className={`absolute top-0 left-0 h-full w-full bg-black opacity-${opacity}`}></div>
+        <div
+          className={`absolute top-0 left-0 h-full w-full bg-black opacity-${opacity}`}
+        ></div>
       )}
       {children}
 
       {/* Arrows */}
       <button
-        className="z-1 absolute top-1/2 left-4 lg:left-8 -translate-y-1/2 cursor-pointer select-none text-3xl lg:text-5xl text-white"
+        className="bg-secondary bg-opacity-70 rounded-full z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 left-4 md:left-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
         onClick={goToLeft}
-      >{`<`}</button>
+      >
+        ˂
+      </button>
       <button
-        className="z-1 absolute top-1/2 right-4 lg:right-8 -translate-y-1/2 cursor-pointer select-none text-3xl lg:text-5xl text-white"
+        className="bg-secondary bg-opacity-70 rounded-full z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 right-4 md:right-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
         onClick={goToRight}
-      >{`>`}</button>
+      >
+        ˃
+      </button>
 
       {/* Indicator Dots */}
       <div className="cover absolute bottom-0 flex w-full justify-center">
