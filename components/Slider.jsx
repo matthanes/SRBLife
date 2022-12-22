@@ -30,13 +30,19 @@ const Slider = ({ slides, timing, children }) => {
   return (
     <div className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[75vh] lg:min-h-screen">
       {/* Image */}
-      <ExportedImage
-        fill
-        priority
-        className={`z-0 object-cover ${objectPosition}`}
-        src={imgLink}
-        alt={alt}
-      ></ExportedImage>
+      {/* map through slides and output ExportedImage Component */}
+      {slides.map((slide, index) => (
+        <ExportedImage
+          src={slide.imgLink}
+          key={index}
+          fill
+          priority
+          className={`z-0 object-cover ${slide.objectPosition} ${
+            index === currentSlide ? 'opacity-1' : 'opacity-0'
+          } transition-all duration-1000 ease-in-out`}
+          alt={slide.alt}
+        ></ExportedImage>
+      ))}
 
       {/* Overlay */}
       {url ? (
