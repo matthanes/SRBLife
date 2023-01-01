@@ -26,15 +26,6 @@ const slides = [
     objectPosition: 'object-center',
   },
   {
-    url: '',
-    title: 'Candlelight Service',
-    subtitle: 'Christmas Eve Candlelight Service 9:00 PM',
-    alt: 'Christmas Eve Candlelight Service 9:00 PM',
-    imgLink: CandleLight,
-    opacity: 0,
-    objectPosition: 'object-bottom',
-  },
-  {
     url: 'https://www.youtube.com/watch?v=Dp7o07dRpSQ',
     title: '',
     subtitle: '',
