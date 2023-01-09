@@ -1,26 +1,84 @@
-import Head from "next/head";
+import React from 'react';
+import FullCalendar from '@fullcalendar/react';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
+import Head from 'next/head';
 
-export default function Calendar() {
+const Calendar = () => {
+  const handleMouseEnter = (e) => {
+    const description = e?.event?.extendedProps?.description ?? '';
+    // Show Tooltip on mouse enter
+    document.getElementById('tooltip').classList.remove('invisible');
+    // Set Tooltip text
+    document.getElementById('tooltip').innerHTML =
+      e.event.title + '<br>' + '<pre>' + description.trim() + '</pre>';
+    // Set Tooltip position
+    document.getElementById('tooltip').style.top = e.jsEvent.pageY + 40 + 'px';
+    document.getElementById('tooltip').style.left = e.jsEvent.pageX + 10 + 'px';
+  };
+
+  const handleMouseLeave = (e) => {
+    document.getElementById('tooltip').classList.add('invisible');
+  };
+
   return (
-    <div className="container mx-auto px-8 md:px-20">
+    <div className="container mx-auto px-8 md:px-20 font-bodytext">
       <Head>
         <title>Schomburg Road Baptist Church Columbus Georgia - Calendar</title>
-        <meta name="keywords" content="beliefs, doctrine" />
+        <meta name="keywords" content="calendar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1 className="mt-4 font-headings font-black text-4xl text-secondary border-b-2">
-        Our <span className="font-light">Calendar</span>
-      </h1>
-
-      <iframe
-        className="mx-auto mt-8 mb-16"
-        src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=c3JibGlmZUBnbWFpbC5jb20&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23007bb6&amp;color=%237986CB&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0"
-        width="100%"
-        height="600"
-        frameBorder="0"
-        scrolling="no"
-      ></iframe>
+      <div
+        id="tooltip"
+        className="invisible absolute z-10 px-4 py-1 rounded-xl bg-black text-white"
+      ></div>
+      <div className="my-4 hidden lg:block">
+        <FullCalendar
+          plugins={[dayGridPlugin, googleCalendarPlugin]}
+          initialView="dayGridMonth"
+          contentHeight="auto"
+          headerToolbar={{
+            left: 'dayGridMonth,dayGridWeek',
+            center: 'title',
+            right: 'prev,next today',
+          }}
+          eventDisplay="block"
+          eventColor="#003D7E"
+          eventTextColor="white"
+          eventBackgroundColor="#003D7E"
+          eventTimeFormat={{
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: 'short',
+          }}
+          googleCalendarApiKey="AIzaSyBqu-QcJV3eviIlKc6YHv_0DgfyiMznT6w"
+          events={{
+            googleCalendarId: 'srblife@gmail.com',
+          }}
+          eventMouseEnter={handleMouseEnter}
+          eventMouseLeave={handleMouseLeave}
+        />
+      </div>
+      <div className="my-4 block">
+        <FullCalendar
+          plugins={[listPlugin, googleCalendarPlugin]}
+          initialView="listMonth"
+          contentHeight="auto"
+          googleCalendarApiKey="AIzaSyBqu-QcJV3eviIlKc6YHv_0DgfyiMznT6w"
+          headerToolbar={{
+            left: 'title',
+            right: 'prev,next',
+          }}
+          events={{
+            googleCalendarId: 'srblife@gmail.com',
+          }}
+          eventMouseEnter={handleMouseEnter}
+          eventMouseLeave={handleMouseLeave}
+        />
+      </div>
     </div>
   );
-}
+};
+
+export default Calendar;

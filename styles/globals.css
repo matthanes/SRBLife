@@ -14,6 +14,24 @@
     background-color: white;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-      background-color: gray;
+    background-color: gray;
   }
+}
+
+.fc-h-event .fc-event-main-frame {
+  flex-direction: column;
+}
+
+.fc .fc-button-primary {
+  background-color: #003d7e !important;
+  border-color: #003d7e !important;
+}
+
+.fc-event .fc-event-main {
+  padding-inline: 4px;
+  padding-block: 1px;
+}
+
+.fc .fc-daygrid-event-harness {
+    margin-block: 3px;
 }

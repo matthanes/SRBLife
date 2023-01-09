@@ -11,7 +11,6 @@ import {
 } from 'react-icons/fa';
 import Head from 'next/head';
 
-import CandleLight from '../public/img/candlelightservice.jpg';
 import Live from '../public/img/SRBLive.jpg';
 import Musical from '../public/img/KidMusical.jpg';
 
