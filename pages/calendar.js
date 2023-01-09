@@ -52,7 +52,7 @@ const Calendar = () => {
             minute: '2-digit',
             meridiem: 'short',
           }}
-          googleCalendarApiKey="AIzaSyBqu-QcJV3eviIlKc6YHv_0DgfyiMznT6w"
+          googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}
           events={{
             googleCalendarId: 'srblife@gmail.com',
           }}
@@ -65,7 +65,7 @@ const Calendar = () => {
           plugins={[listPlugin, googleCalendarPlugin]}
           initialView="listMonth"
           contentHeight="auto"
-          googleCalendarApiKey="AIzaSyBqu-QcJV3eviIlKc6YHv_0DgfyiMznT6w"
+          googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}
           headerToolbar={{
             left: 'title',
             right: 'prev,next',
