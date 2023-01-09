@@ -40,3 +40,6 @@ yarn-error.log*
 **/public/sw.js.map
 **/public/worker-*.js
 **/public/workbox-4a677df8.js
+/.env.development
+/.env.production
+/.env.local
