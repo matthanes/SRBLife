@@ -61,7 +61,7 @@ const Calendar = () => {
           eventMouseLeave={handleMouseLeave}
         />
       </div>
-      <div className="my-4 block lg:hidden">
+      <div className="my-4 mx-4 block lg:hidden">
         <FullCalendar
           plugins={[listPlugin, googleCalendarPlugin]}
           initialView="listMonth"
