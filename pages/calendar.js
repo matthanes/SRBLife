@@ -23,7 +23,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 md:px-20 font-bodytext">
+    <div className="max-w-md sm:container mx-auto sm:px-8 md:px-20 font-bodytext">
       <Head>
         <title>Schomburg Road Baptist Church Columbus Georgia - Calendar</title>
         <meta name="keywords" content="calendar" />
@@ -37,6 +37,7 @@ const Calendar = () => {
         <FullCalendar
           plugins={[dayGridPlugin, googleCalendarPlugin]}
           initialView="dayGridMonth"
+          width
           contentHeight="auto"
           headerToolbar={{
             left: 'dayGridMonth,dayGridWeek',
@@ -60,7 +61,7 @@ const Calendar = () => {
           eventMouseLeave={handleMouseLeave}
         />
       </div>
-      <div className="my-4 block">
+      <div className="my-4 block lg:hidden">
         <FullCalendar
           plugins={[listPlugin, googleCalendarPlugin]}
           initialView="listMonth"
