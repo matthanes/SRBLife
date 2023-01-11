@@ -1,26 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import Head from 'next/head';
+import Modal from '../components/Modal';
 
 const Calendar = () => {
-  const handleMouseEnter = (e) => {
-    const description = e?.event?.extendedProps?.description ?? '';
-    // Show Tooltip on mouse enter
-    document.getElementById('tooltip').classList.remove('invisible');
-    // Set Tooltip text
-    document.getElementById('tooltip').innerHTML =
-      e.event.title + '<br>' + '<pre>' + description.trim() + '</pre>';
-    // Set Tooltip position
-    document.getElementById('tooltip').style.top = e.jsEvent.pageY + 40 + 'px';
-    document.getElementById('tooltip').style.left = e.jsEvent.pageX + 10 + 'px';
-  };
-
-  const handleMouseLeave = (e) => {
-    document.getElementById('tooltip').classList.add('invisible');
-  };
+  const [showModal, setShowModal] = useState(false);
+  const [modalText, setModalText] = useState('');
 
   return (
     <div className="max-w-md sm:container mx-auto sm:px-8 md:px-20 font-bodytext">
@@ -29,15 +17,21 @@ const Calendar = () => {
         <meta name="keywords" content="calendar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        id="tooltip"
-        className="invisible absolute z-10 px-4 py-1 rounded-xl bg-black text-white"
-      ></div>
+
+      {/* Modal is rendered in _document.js at the #modal-root div */}
+      {showModal && (
+        <Modal
+          modalText={modalText}
+          buttonLeft={'CLOSE'}
+          leftButtonFunc={() => setShowModal(false)}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+
       <div className="my-4 hidden lg:block">
         <FullCalendar
           plugins={[dayGridPlugin, googleCalendarPlugin]}
           initialView="dayGridMonth"
-          width
           contentHeight="auto"
           headerToolbar={{
             left: 'dayGridMonth,dayGridWeek',
@@ -57,8 +51,11 @@ const Calendar = () => {
           events={{
             googleCalendarId: 'srblife@gmail.com',
           }}
-          eventMouseEnter={handleMouseEnter}
-          eventMouseLeave={handleMouseLeave}
+          eventClick={(e) => {
+            e.jsEvent.preventDefault();
+            setModalText(e?.event?.extendedProps?.description?.trim());
+            setShowModal(true);
+          }}
         />
       </div>
       <div className="my-4 mx-4 block lg:hidden">
@@ -71,11 +68,14 @@ const Calendar = () => {
             left: 'title',
             right: 'prev,next',
           }}
+          eventClick={(e) => {
+            e.jsEvent.preventDefault();
+            setModalText(e?.event?.extendedProps?.description?.trim());
+            setShowModal(true);
+          }}
           events={{
             googleCalendarId: 'srblife@gmail.com',
           }}
-          eventMouseEnter={handleMouseEnter}
-          eventMouseLeave={handleMouseLeave}
         />
       </div>
     </div>
