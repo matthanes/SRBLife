@@ -24,15 +24,6 @@ const slides = [
     opacity: 0,
     objectPosition: 'object-center',
   },
-  {
-    url: 'https://www.youtube.com/watch?v=Dp7o07dRpSQ',
-    title: '',
-    subtitle: '',
-    alt: 'Kid Christmas Musical. Click For Recording',
-    imgLink: Musical,
-    opacity: 0,
-    objectPosition: 'object-bottom',
-  },
 ];
 
 export default function Home() {
@@ -52,26 +43,7 @@ export default function Home() {
       </Head>
       <header className="relative min-h-1/3 sm:min-h-1/2 md:min-h-3/4 xl:min-h-screen">
         <Slider slides={slides} timing={5000}></Slider>
-        {/* <ExportedImage
-          className="object-cover object-bottom"
-          alt="Christmas Eve Candlelight Service 9:00PM"
-          src="/img/candlelightservice.jpg"
-          fill
-          priority={true}
-        /> */}
       </header>
-      {/* <a href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live">
-        <div className="bg-white text-center min-h-1/3 md:min-h-1/2 xl:min-h-screen">
-          <ExportedImage
-            alt="Christmas Eve Candlelight Service 9:00PM"
-            src="/img/candlelightservice.jpg"
-            width={1920}
-            height={900}
-            objectFit="cover"
-            priority={true}
-          />
-        </div>
-      </a> */}
       <div className="container my-8 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           <Homecard

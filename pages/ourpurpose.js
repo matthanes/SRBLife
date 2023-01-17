@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 export default function OurPurpose() {
   return (
@@ -86,17 +86,28 @@ export default function OurPurpose() {
           As for His Kingdom, we THINK ORCHARD.
         </p>
         <p className="px-6 md:text-left text-justify py-4">
-        This reminds us that we are to be Kingdom minded; a church that is seeking to build up HIS Kingdom and not our church. Thinking Orchard is how our purpose statement is lived out.
+          This reminds us that we are to be Kingdom minded; a church that is
+          seeking to build up HIS Kingdom and not our church. Thinking Orchard
+          is how our purpose statement is lived out.
         </p>
         <p className="px-6 md:text-left text-justify py-4">
-        Because of this, we are involved with the Columbus Baptist Association and partnering with other churches in different ministries and missions locally, within our state, across our country and around the world. Specifically, we are involved in Valley Rescue Missions, Crossroads Addition Recover Program, Sound Choices Pregnancy Clinic, Rutledge State Prison, Operation Christmas Child, GBC Children’s Home and more. We also have been on short-term mission trips to South Carolina, Arkansas, Kentucky, Florida, Mississippi, Tennessee, Georgia, Alabama, Zimbabwe, Thailand, Uganda, and East Asia.
+          Because of this, we are involved with the Columbus Baptist Association
+          and partnering with other churches in different ministries and
+          missions locally, within our state, across our country and around the
+          world. Specifically, we are involved in Valley Rescue Missions,
+          Crossroads Addition Recover Program, Sound Choices Pregnancy Clinic,
+          Rutledge State Prison, Operation Christmas Child, GBC Children’s Home
+          and more. We also have been on short-term mission trips to South
+          Carolina, Arkansas, Kentucky, Florida, Mississippi, Tennessee,
+          Georgia, Alabama, Zimbabwe, Thailand, Uganda, and East Asia.
         </p>
         <p className="px-6 text-red-500 text-semibold italic md:text-left text-justify py-4">
-        Go therefore and make disciples of all the nations, baptizing them in the name of the Father and the Son and the Holy Spirit, teaching them to observe all that I commanded you; and lo, I am with you always, even to the end of the age.
+          Go therefore and make disciples of all the nations, baptizing them in
+          the name of the Father and the Son and the Holy Spirit, teaching them
+          to observe all that I commanded you; and lo, I am with you always,
+          even to the end of the age.
         </p>
-        <p className="px-6 text-right">
-        Matthew 28: 19-20 (NASB)
-        </p>
+        <p className="px-6 text-right">Matthew 28: 19-20 (NASB)</p>
       </div>
     </div>
   );

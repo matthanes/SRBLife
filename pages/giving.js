@@ -1,6 +1,6 @@
-import { FaRegUser, FaMailBulk, FaCcPaypal } from "react-icons/fa";
+import { FaRegUser, FaMailBulk, FaCcPaypal } from 'react-icons/fa';
 
-import Head from "next/head";
+import Head from 'next/head';
 
 export default function Giving() {
   return (

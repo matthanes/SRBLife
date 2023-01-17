@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 export default function Salvation() {
   return (
@@ -30,7 +30,9 @@ export default function Salvation() {
           Well, the Bible has good news for you. You can be sure. In fact, God
           wants you to be sure. And it’s not as complicated as you might think.
         </p>
-        <p className="px-6 py-4 md:text-left text-justify">Let’s look at what God says in His Word.</p>
+        <p className="px-6 py-4 md:text-left text-justify">
+          Let’s look at what God says in His Word.
+        </p>
       </div>
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
         <p className="px-6 text-4xl">There is none righteous, no, not one.</p>
@@ -54,7 +56,9 @@ export default function Salvation() {
         </p>
       </div>
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
-        <p className="px-6 text-4xl">He who believes in Me has everlasting life.</p>
+        <p className="px-6 text-4xl">
+          He who believes in Me has everlasting life.
+        </p>
         <p className="px-6 text-xl pt-6">John 6:47</p>
       </div>
       <div className="bg-white text-secondary text-xl font-bodytext font-medium py-8 lg:px-64 md:px-20 sm:px-16">

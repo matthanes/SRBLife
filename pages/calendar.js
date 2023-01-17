@@ -7,8 +7,31 @@ import Head from 'next/head';
 import Modal from '../components/Modal';
 
 const Calendar = () => {
+  const windowWidth = typeof window !== 'undefined' && window.innerWidth;
+  const [isMobile, setIsMobile] = useState(windowWidth < 1024 ? true : false);
   const [showModal, setShowModal] = useState(false);
   const [modalText, setModalText] = useState('');
+  const [view, setView] = useState(
+    windowWidth < 1024 ? 'listMonth' : 'dayGridMonth'
+  );
+
+  // useEffect to listen for window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setIsMobile(true);
+        setView('listMonth');
+      }
+      if (window.innerWidth >= 1024) {
+        setIsMobile(false);
+        setView('dayGridMonth');
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobile, view]);
 
   return (
     <div className="max-w-md sm:container mx-auto sm:px-8 md:px-20 font-bodytext">
@@ -28,16 +51,23 @@ const Calendar = () => {
         />
       )}
 
-      <div className="my-4 hidden lg:block">
+      <div className="my-4 mx-4 lg:mx-0">
         <FullCalendar
-          plugins={[dayGridPlugin, googleCalendarPlugin]}
-          initialView="dayGridMonth"
+          plugins={[dayGridPlugin, googleCalendarPlugin, listPlugin]}
+          initialView={view}
           contentHeight="auto"
-          headerToolbar={{
-            left: 'dayGridMonth,dayGridWeek',
-            center: 'title',
-            right: 'prev,next today',
-          }}
+          headerToolbar={
+            isMobile
+              ? {
+                  left: 'title',
+                  right: 'prev,next',
+                }
+              : {
+                  left: 'dayGridMonth,dayGridWeek',
+                  center: 'title',
+                  right: 'prev,next today',
+                }
+          }
           eventDisplay="block"
           eventColor="#003D7E"
           eventTextColor="white"
@@ -55,26 +85,6 @@ const Calendar = () => {
             e.jsEvent.preventDefault();
             setModalText(e?.event?.extendedProps?.description?.trim());
             setShowModal(true);
-          }}
-        />
-      </div>
-      <div className="my-4 mx-4 block lg:hidden">
-        <FullCalendar
-          plugins={[listPlugin, googleCalendarPlugin]}
-          initialView="listMonth"
-          contentHeight="auto"
-          googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}
-          headerToolbar={{
-            left: 'title',
-            right: 'prev,next',
-          }}
-          eventClick={(e) => {
-            e.jsEvent.preventDefault();
-            setModalText(e?.event?.extendedProps?.description?.trim());
-            setShowModal(true);
-          }}
-          events={{
-            googleCalendarId: 'srblife@gmail.com',
           }}
         />
       </div>

@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function Modal({ modalText, buttonLeft, buttonRight, leftButtonFunc, rightButtonFunc, onClose}) {
+function Modal({
+  modalText,
+  buttonLeft,
+  buttonRight,
+  leftButtonFunc,
+  rightButtonFunc,
+  onClose,
+}) {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -9,10 +16,10 @@ function Modal({ modalText, buttonLeft, buttonRight, leftButtonFunc, rightButton
   }, []);
 
   useEffect(() => {
-    const closeOnEscapeKey = e => e.key === "Escape" ? onClose() : null;
-    document.body.addEventListener("keydown", closeOnEscapeKey);
+    const closeOnEscapeKey = (e) => (e.key === 'Escape' ? onClose() : null);
+    document.body.addEventListener('keydown', closeOnEscapeKey);
     return () => {
-      document.body.removeEventListener("keydown", closeOnEscapeKey);
+      document.body.removeEventListener('keydown', closeOnEscapeKey);
     };
   }, [onClose]);
 
@@ -30,7 +37,9 @@ function Modal({ modalText, buttonLeft, buttonRight, leftButtonFunc, rightButton
     return ReactDOM.createPortal(
       <div className="fixed bg-slate-700 bg-opacity-60 flex justify-center items-center inset-0 z-50">
         <div className="bg-white px-16 py-8 rounded-md text-center shadow-lg shadow-slate-800 drop-shadow-xl">
-          <p className="text-xl mb-4 font-bold text-slate-500 whitespace-pre-wrap">{modalText ?? 'No event description'}</p>
+          <p className="text-xl mb-4 font-bold text-slate-500 whitespace-pre-wrap">
+            {modalText ?? 'No event description'}
+          </p>
           {buttonLeft && (
             <button
               onClick={handleLeftButton}
@@ -40,9 +49,10 @@ function Modal({ modalText, buttonLeft, buttonRight, leftButtonFunc, rightButton
             </button>
           )}
           {buttonRight && (
-            <button 
-            onClick={handleRightButton}
-            className="bg-indigo-500 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold">
+            <button
+              onClick={handleRightButton}
+              className="bg-indigo-500 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold"
+            >
               {buttonRight}
             </button>
           )}

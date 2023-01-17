@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import Hamburger from "./Hamburger";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Hamburger from './Hamburger';
 
 const links = [
-  { name: "Home", target: "/" },
-  { name: "Calendar", target: "/calendar" },
-  { name: "Our Beliefs", target: "/ourbeliefs" },
-  { name: "Salvation", target: "/salvation"  },
-  { name: "Our Purpose", target: "/ourpurpose"  },
-  { name: "Giving", target: "/giving"  },
+  { name: 'Home', target: '/' },
+  { name: 'Calendar', target: '/calendar' },
+  { name: 'Our Beliefs', target: '/ourbeliefs' },
+  { name: 'Salvation', target: '/salvation' },
+  { name: 'Our Purpose', target: '/ourpurpose' },
+  { name: 'Giving', target: '/giving' },
 ];
 
 const Nav2 = () => {
@@ -47,7 +47,9 @@ const Nav2 = () => {
                       className="list-none text-gray-100 hover:bg-secondary hover:text-white px-3 py-2 rounded-md font-rock-salt text-lg font-semibold"
                       key={link.name}
                     >
-                      <Link href={link.target} as={link.as}>{link.name}</Link>
+                      <Link href={link.target} as={link.as}>
+                        {link.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -55,7 +57,13 @@ const Nav2 = () => {
             </div>
           </div>
         </div>
-        <div className={(active ? " fixed bg-primary w-full h-screen " : " hidden") + " lg:hidden"} id="mobile-menu">
+        <div
+          className={
+            (active ? ' fixed bg-primary w-full h-screen ' : ' hidden') +
+            ' lg:hidden'
+          }
+          id="mobile-menu"
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 mt-16">
             {links.map((link) => (
               <li
@@ -63,7 +71,9 @@ const Nav2 = () => {
                 key={link.name}
                 onClick={() => setActive(!active)}
               >
-                <Link href={link.target} as={link.as}>{link.name}</Link>
+                <Link href={link.target} as={link.as}>
+                  {link.name}
+                </Link>
               </li>
             ))}
           </div>

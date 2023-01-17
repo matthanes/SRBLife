@@ -33,5 +33,16 @@
 }
 
 .fc .fc-daygrid-event-harness {
-    margin-block: 3px;
+  margin-block: 3px;
+}
+
+.fc-daygrid-block-event .fc-event-title {
+  padding: 1px;
+  white-space: pre-wrap;
+}
+
+td.fc-list-event-time {
+  font-family: 'Roboto Mono';
+  font-weight: 500;
+  letter-spacing: -0.75px;
 }
