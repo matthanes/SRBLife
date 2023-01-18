@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -9,22 +9,28 @@ import Modal from '../components/Modal';
 const Calendar = () => {
   const windowWidth = typeof window !== 'undefined' && window.innerWidth;
   const [isMobile, setIsMobile] = useState(windowWidth < 1024 ? true : false);
+  const [view, setView] = useState(isMobile ? 'listMonth' : 'dayGridMonth');
+
   const [showModal, setShowModal] = useState(false);
   const [modalText, setModalText] = useState('');
-  const [view, setView] = useState(
-    windowWidth < 1024 ? 'listMonth' : 'dayGridMonth'
-  );
+
+  const calendarRef = useRef(null);
 
   // useEffect to listen for window resize
   useEffect(() => {
+    const { current: calendarDom } = calendarRef;
+    const API = calendarDom ? calendarDom.getApi() : null;
+    
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setIsMobile(true);
         setView('listMonth');
+        API && API.changeView(view);
       }
       if (window.innerWidth >= 1024) {
         setIsMobile(false);
-        setView('dayGridMonth');
+        setView('dayGridMonth')
+        API && API.changeView(view);
       }
     };
     window.addEventListener('resize', handleResize);
@@ -54,7 +60,6 @@ const Calendar = () => {
       <div className="my-4 mx-4 lg:mx-0">
         <FullCalendar
           plugins={[dayGridPlugin, googleCalendarPlugin, listPlugin]}
-          initialView={view}
           contentHeight="auto"
           headerToolbar={
             isMobile
@@ -86,6 +91,7 @@ const Calendar = () => {
             setModalText(e?.event?.extendedProps?.description?.trim());
             setShowModal(true);
           }}
+          ref={calendarRef}
         />
       </div>
     </div>
