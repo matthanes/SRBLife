@@ -60,6 +60,7 @@ const Calendar = () => {
       <div className="my-4 mx-4 lg:mx-0">
         <FullCalendar
           plugins={[dayGridPlugin, googleCalendarPlugin, listPlugin]}
+          initialView={view}
           contentHeight="auto"
           headerToolbar={
             isMobile
