@@ -12,11 +12,11 @@ import {
 import Head from 'next/head';
 
 import Live from '../public/img/SRBLive.jpg';
-import Musical from '../public/img/KidMusical.jpg';
 
 const slides = [
   {
     url: 'https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live',
+    ariaLabelText: 'SRB Live YouTube Channel',
     title: 'SRB Live',
     subtitle: 'SRB Live and In Person This Sunday!',
     alt: 'SRB Live and In Person This Sunday!',

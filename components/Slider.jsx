@@ -24,7 +24,7 @@ const Slider = ({ slides, timing, children }) => {
     };
   }, [currentSlide]);
 
-  const { url, title, subtitle, alt, objectPosition, imgLink, opacity } =
+  const { url, ariaLabelText, title, subtitle, alt, objectPosition, imgLink, opacity } =
     slides[currentSlide];
 
   return (
@@ -48,6 +48,7 @@ const Slider = ({ slides, timing, children }) => {
       {url ? (
         <a
           href={url}
+          aria-label={ariaLabelText}
           className={`absolute top-0 left-1/2 -translate-x-1/2 h-full w-[80vw] bg-black opacity-${opacity}`}
         ></a>
       ) : (

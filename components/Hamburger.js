@@ -2,6 +2,7 @@ const Hamburger = ({ handleClick, active }) => {
   return (
     <button
       className="flex flex-col p-3 hover:bg-secondary rounded lg:hidden text-white hover:text-white outline-none"
+      aria-label="Mobile Menu"
       onClick={handleClick}
     >
       <div
