@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import Script from 'next/script';
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
