@@ -6,7 +6,8 @@ export default function Giving() {
   return (
     <div className="bg-primary">
       <Head>
-        <title>Schomburg Road Baptist Church Columbus Georgia - Giving</title>
+        <title>Giving | Schomburg Road Baptist Church Columbus, Georgia</title>
+        <meta name="description" content="Learn how to give to support our ministry and missions." />
         <meta name="keywords" content="beliefs, doctrine" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

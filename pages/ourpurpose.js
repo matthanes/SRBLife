@@ -5,8 +5,9 @@ export default function OurPurpose() {
     <div>
       <Head>
         <title>
-          Schomburg Road Baptist Church Columbus Georgia - Our Purpose
+          Our Purpose | Schomburg Road Baptist Church Columbus Georgia
         </title>
+        <meta name="description" content="Loving Him, Loving Them, Changing Lives!" />
         <meta name="keywords" content="beliefs, doctrine" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

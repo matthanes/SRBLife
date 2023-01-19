@@ -20,7 +20,7 @@ const Calendar = () => {
   useEffect(() => {
     const { current: calendarDom } = calendarRef;
     const API = calendarDom ? calendarDom.getApi() : null;
-    
+
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setIsMobile(true);
@@ -29,7 +29,7 @@ const Calendar = () => {
       }
       if (window.innerWidth >= 1024) {
         setIsMobile(false);
-        setView('dayGridMonth')
+        setView('dayGridMonth');
         API && API.changeView(view);
       }
     };
@@ -42,7 +42,10 @@ const Calendar = () => {
   return (
     <div className="max-w-md sm:container mx-auto sm:px-8 md:px-20 font-bodytext">
       <Head>
-        <title>Schomburg Road Baptist Church Columbus Georgia - Calendar</title>
+        <title>
+          Calendar | Schomburg Road Baptist Church Columbus, Georgia
+        </title>
+        <meta name="description" content="Church calendar of events." />
         <meta name="keywords" content="calendar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

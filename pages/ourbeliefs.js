@@ -5,8 +5,15 @@ export default function OurBeliefs() {
     <div className="mb-12">
       <Head>
         <title>
-          Schomburg Road Baptist Church Columbus Georgia - Our Beliefs
+          Our Beliefs | Schomburg Road Baptist Church Columbus, Georgia
         </title>
+        <meta
+          name="description"
+          content="The Son, the historical Jesus of Nazareth, is
+          eternal. He was born of a virgin, died on the cross, physically rose
+          from the dead, is alive today and is seated next to God the Father.
+          Through His death, He provided salvation to all who believe."
+        />
         <meta name="keywords" content="beliefs, doctrine" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

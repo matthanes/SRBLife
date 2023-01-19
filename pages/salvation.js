@@ -5,9 +5,13 @@ export default function Salvation() {
     <div className="bg-church bg-fixed bg-cover bg-bottom">
       <Head>
         <title>
-          Schomburg Road Baptist Church Columbus Georgia - Salvation
+          Salvation | Schomburg Road Baptist Church Columbus Georgia
         </title>
-        <meta name="keywords" content="beliefs, doctrine" />
+        <meta
+          name="description"
+          content="John 3:16-17 For this is how God loved the world: He gave his one and only Son, so that everyone who believes in him will not perish but have eternal life. God sent his Son into the world not to judge the world, but to save the world through him."
+        />
+        <meta name="keywords" content="saved, eternal life, baptism" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
