@@ -22,13 +22,30 @@ export default function BlogPosts({blog_posts}) {
     setPage(value);
   };
 
+  // Add search component
+  const [search, setSearch] = useState('');
+  const [filteredPosts, setFilteredPosts] = useState(blog_posts);
+
+  useEffect(() => {
+    const results = blog_posts.filter((post) =>
+      // filter by title, description, and tags
+      post.title.toLowerCase().includes(search.toLowerCase()) ||
+      post.description.toLowerCase().includes(search.toLowerCase()) ||
+      post.tags.some((tag) =>
+        tag.tags_id.tag_name.toLowerCase().includes(search.toLowerCase())
+      )
+
+    );
+    setFilteredPosts(results);
+  }, [search]);
+
   useEffect(() => {
     const totalPages = Math.ceil(numPosts / numPostsPerPage);
     const start = (page - 1) * numPostsPerPage;
     const end = start + numPostsPerPage;
     setTotalPages(totalPages);
-    setPageSlice(blog_posts.slice(start, end));
-  }, [page]);
+    setPageSlice(filteredPosts.slice(start, end));
+  }, [page,search]);
 
   return (
     <>
@@ -41,6 +58,18 @@ export default function BlogPosts({blog_posts}) {
         <h1 className="container mx-auto mt-4 mb-4 border-b-2 px-8 font-headings text-4xl font-black text-secondary sm:px-20">
           News Posts
         </h1>
+        <div className="mx-auto w-full">
+          <div className="flex justify-center">
+            <input
+              className="border-2 border-primary rounded-lg py-2 mx-4 px-4 w-full max-w-4xl"
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+        </div>
+
         {pageSlice.map((post, index) => (
           <BlogPostPreview key={index} post={post} />
         ))}
