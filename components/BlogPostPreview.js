@@ -9,8 +9,8 @@ const BlogPostPreview = ({ post }) => {
     year: 'numeric',
   });
   return (
-    <section className="flex flex-col items-center px-4 lg:px-0">
-      <div className="container m-4 max-w-4xl rounded-lg bg-slate-100 px-10 py-6 shadow-sm sm:mx-0">
+    <section className="flex flex-col items-center overflow-hidden px-4 lg:px-0">
+      <div className="m-4 w-full max-w-4xl rounded-lg bg-slate-100 px-10 py-6 shadow-sm sm:mx-0">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <span className="mb-4 sm:mb-0">{formattedDate}</span>
           <div>
@@ -28,7 +28,7 @@ const BlogPostPreview = ({ post }) => {
           <Link className="text-lg font-bold" href={`/news/${slug}`}>
             {title}
           </Link>
-          <p className="mt-2">{description}</p>
+          <p className="mt-2 line-clamp-6 md:line-clamp-3">{description}</p>
         </div>
         <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <Link
