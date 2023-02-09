@@ -1,10 +1,31 @@
-import parse, { domToReact } from 'html-react-parser';
-
 const cdnUrl = 'https://directussrblog.s3.amazonaws.com';
 
-export const getSrcID = (src) => src.split('/').pop();
+export const getSrcKey = (src) => src.split('/').pop();
 
-export const trimParams = (src) => (/\?/.test(src) ? src.split('?')[0] : src);
+export const removeParams = (src) => (/\?/.test(src) ? src.split('?')[0] : src);
+
+export const getFiles = async () => {
+  const files = await fetch('https://srblog.up.railway.app/graphql/system', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${process.env.DIRECTUS_TOKEN}`,
+    },
+    body: JSON.stringify({
+      query: `query {
+        files
+        {
+          id
+          filename_disk
+        }
+      }
+      `,
+    }),
+  });
+
+  const data = await files.json();
+  return data.data.files;
+};
 
 export const getSinglePost = async (slug) => {
   const blog_posts = await fetch('https://srblog.up.railway.app/graphql', {
@@ -39,6 +60,20 @@ export const getSinglePost = async (slug) => {
   const data = await blog_posts.json();
   const singlePost = data.data.blog_posts[0];
 
+  const files = await getFiles();
+
+  // find images in singlePost.post and replace the src URL with cdnUrl
+  const images = singlePost.post.match(/<img.*?src=".*?".*?>/g);
+  if (images) {
+    images.forEach((image) => {
+      const src = image.match(/src=".*?"/g)[0];
+      const fileId = removeParams(getSrcKey(src));
+      const file = files.find((file) => file.id === fileId);
+      const newSrc = `${cdnUrl}/${file.filename_disk}`;
+      singlePost.post = singlePost.post.replace(src, `src="${newSrc}"`);
+    });
+  }
+
   return {
     singlePost,
   };
@@ -53,7 +88,9 @@ export const getAllPublished = async () => {
     },
     body: JSON.stringify({
       query: `query {
-        blog_posts
+        blog_posts (
+          filter: { status: { _eq: "published" } } 
+      )
         {
           title
           description
@@ -90,6 +127,7 @@ export const getAllTags = async () => {
             tags {
               name
           }
+        }
         `,
     }),
   });
@@ -99,3 +137,4 @@ export const getAllTags = async () => {
 
   return posts;
 };
+
