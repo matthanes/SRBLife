@@ -5,7 +5,7 @@ export const getSrcKey = (src) => src.split('/').pop();
 export const removeParams = (src) => (/\?/.test(src) ? src.split('?')[0] : src);
 
 export const getFiles = async () => {
-  const files = await fetch('https://srblog.up.railway.app/graphql/system', {
+  const files = await fetch('https://srblog.srblife.com/graphql/system', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export const getFiles = async () => {
 };
 
 export const getSinglePost = async (slug) => {
-  const blog_posts = await fetch('https://srblog.up.railway.app/graphql', {
+  const blog_posts = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export const getSinglePost = async (slug) => {
 };
 
 export const getAllPublished = async () => {
-  const blog_posts = await fetch('https://srblog.up.railway.app/graphql', {
+  const blog_posts = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -89,7 +89,8 @@ export const getAllPublished = async () => {
     body: JSON.stringify({
       query: `query {
         blog_posts (
-          filter: { status: { _eq: "published" } } 
+          filter: { status: { _eq: "published" } },
+          sort: [ "-publish_date" ]
       )
         {
           title
@@ -115,7 +116,7 @@ export const getAllPublished = async () => {
 };
 
 export const getAllTags = async () => {
-  const response = await fetch('https://srblog.up.railway.app/graphql', {
+  const tags = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -125,16 +126,20 @@ export const getAllTags = async () => {
       query: `
           query {
             tags {
-              name
+              tag_name
           }
         }
         `,
     }),
   });
 
-  const data = await response.json();
-  const tags = data.data.posts;
+  const data = await tags.json();
+  // for each tag_name in data.data.tags, add to an object
+  const tagList = [];
+  data.data.tags.forEach((tag) => {
+    tagList.push(tag.tag_name);
+  });
 
-  return posts;
+  return tagList;
 };
 
