@@ -25,14 +25,14 @@ const BlogPostPreview = ({ post }) => {
           </div>
         </div>
         <div className="mt-3">
-          <Link className="text-lg font-bold" href={`/news/${slug}`}>
+          <Link className="text-lg font-bold focus:outline-none focus:ring focus:ring-primary" href={`/news/${slug}`}>
             {title}
           </Link>
           <p className="mt-2 line-clamp-6 md:line-clamp-3">{description}</p>
         </div>
         <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <Link
-            className="font-semibold text-primary hover:underline"
+            className="font-semibold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
             href={`/news/${slug}`}
           >
             Read More
