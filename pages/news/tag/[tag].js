@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import BlogPostPreview from '../../components/BlogPostPreview';
-import { getAllPublished } from '../../utilities/directus';
+import BlogPostPreview from '../../../components/BlogPostPreview';
+import { getAllTags, getAllPublished } from '../../../utilities/directus';
 
-export default function BlogPosts({blog_posts}) {
+import React from 'react';
+
+export const Tag = ({ postsByTag }) => {
   // paginate the blog posts
   const [page, setPage] = useState(1);
   const [total_pages, setTotalPages] = useState(0);
   const [pageSlice, setPageSlice] = useState([]);
 
   const numPostsPerPage = 5;
-  const numPosts = blog_posts.length;
+  const numPosts = postsByTag.length;
 
   const handlePageChange = (value) => {
     if (value < 1) {
@@ -24,18 +26,18 @@ export default function BlogPosts({blog_posts}) {
 
   // Add search component
   const [search, setSearch] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(blog_posts);
+  const [filteredPosts, setFilteredPosts] = useState(postsByTag);
 
   useEffect(() => {
-    const results = blog_posts.filter((post) =>
-      // filter by title, description, and tags
-      post.title.toLowerCase().includes(search.toLowerCase()) ||
-      post.description.toLowerCase().includes(search.toLowerCase()) ||
-      post.author.name.toLowerCase().includes(search.toLowerCase()) ||
-      post.tags.some((tag) =>
-        tag.tags_id.tag_name.toLowerCase().includes(search.toLowerCase())
-      )
-
+    const results = postsByTag.filter(
+      (post) =>
+        // filter by title, description, and tags
+        post.title.toLowerCase().includes(search.toLowerCase()) ||
+        post.description.toLowerCase().includes(search.toLowerCase()) ||
+        post.author.name.toLowerCase().includes(search.toLowerCase()) ||
+        post.tags.some((tag) =>
+          tag.tags_id.tag_name.toLowerCase().includes(search.toLowerCase())
+        )
     );
     setFilteredPosts(results);
   }, [search]);
@@ -46,7 +48,7 @@ export default function BlogPosts({blog_posts}) {
     const end = start + numPostsPerPage;
     setTotalPages(totalPages);
     setPageSlice(filteredPosts.slice(start, end));
-  }, [page,search]);
+  }, [page, search]);
 
   return (
     <>
@@ -62,7 +64,7 @@ export default function BlogPosts({blog_posts}) {
         <div className="mx-auto w-full">
           <div className="flex justify-center">
             <input
-              className="border-2 border-primary rounded-lg py-2 mx-4 px-4 w-full max-w-4xl"
+              className="mx-4 w-full max-w-4xl rounded-lg border-2 border-primary py-2 px-4"
               type="text"
               placeholder="Search"
               value={search}
@@ -117,16 +119,35 @@ export default function BlogPosts({blog_posts}) {
       </section>
     </>
   );
-}
+};
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ params }) => {
   const data = await getAllPublished();
+  const postsByTag = data.data.blog_posts.filter((post) => {
+    return post.tags.some(
+      (tag) => tag.tags_id.tag_name.toLowerCase() === params.tag
+    );
+  });
 
   return {
     props: {
-      blog_posts: data.data.blog_posts,
+      postsByTag,
     },
-
-    revalidate: 60,
+    revalidate: 1,
   };
 };
+
+export const getStaticPaths = async () => {
+  const data = await getAllTags();
+
+  const paths = data.map((tag_name) => ({
+    params: { tag: tag_name.toLowerCase() },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+};
+
+export default Tag;
