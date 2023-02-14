@@ -62,7 +62,7 @@ export default function BlogPosts({blog_posts}) {
         <div className="mx-auto w-full">
           <div className="flex justify-center">
             <input
-              className="border-2 border-primary rounded-lg py-2 mx-4 px-4 w-full max-w-4xl"
+              className="border-2 border-primary rounded-lg py-2 mx-4 px-4 w-full max-w-4xl focus:outline-none focus:ring-1 focus:ring-secondary"
               type="text"
               placeholder="Search"
               value={search}
@@ -105,7 +105,7 @@ export default function BlogPosts({blog_posts}) {
           {Array.from({ length: total_pages }, (_, i) => (
             <button
               key={i}
-              className={`mx-1 py-2 px-4 font-black text-primary outline ${
+              className={`mx-1 py-2 px-4 font-black text-primary outline focus:outline-none focus:ring focus:ring-primary ${
                 page === i + 1 ? 'text-secondary' : ''
               }`}
               onClick={() => setPage(i + 1)}

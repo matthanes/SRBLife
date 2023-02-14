@@ -107,7 +107,7 @@ export const Tag = ({ postsByTag }) => {
           {Array.from({ length: total_pages }, (_, i) => (
             <button
               key={i}
-              className={`mx-1 py-2 px-4 font-black text-primary outline ${
+              className={`mx-1 py-2 px-4 font-black text-primary outline focus:outline-none focus:ring focus:ring-primary ${
                 page === i + 1 ? 'text-secondary' : ''
               }`}
               onClick={() => setPage(i + 1)}
