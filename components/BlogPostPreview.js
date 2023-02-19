@@ -15,12 +15,13 @@ const BlogPostPreview = ({ post }) => {
           <span className="mb-4 sm:mb-0">{formattedDate}</span>
           <div>
             {tags.map((tag) => (
-              <span
-                className="mx-1 rounded-md bg-primary px-3 py-1 text-white"
+              <a
+                className="mx-1 rounded-md bg-primary px-3 py-1 text-white focus-visible:outline-none focus-visible:ring focus-visible:ring-secondary"
+                href={`/news/tag/${tag.tags_id.tag_name.toLowerCase()}`}
                 key={tag.tags_id.tag_name}
               >
                 {tag.tags_id.tag_name}
-              </span>
+              </a>
             ))}
           </div>
         </div>
