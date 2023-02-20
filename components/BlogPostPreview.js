@@ -15,18 +15,21 @@ const BlogPostPreview = ({ post }) => {
           <span className="mb-4 sm:mb-0">{formattedDate}</span>
           <div>
             {tags.map((tag) => (
-              <a
+              <Link
                 className="mx-1 rounded-md bg-primary px-3 py-1 text-white focus-visible:outline-none focus-visible:ring focus-visible:ring-secondary"
                 href={`/news/tag/${tag.tags_id.tag_name.toLowerCase()}`}
                 key={tag.tags_id.tag_name}
               >
                 {tag.tags_id.tag_name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
         <div className="mt-3">
-          <Link className="text-lg font-bold focus:outline-none focus:ring focus:ring-primary" href={`/news/${slug}`}>
+          <Link
+            className="text-lg font-bold focus:outline-none focus:ring focus:ring-primary"
+            href={`/news/${slug}`}
+          >
             {title}
           </Link>
           <p className="mt-2 line-clamp-6 md:line-clamp-3">{description}</p>
@@ -40,12 +43,22 @@ const BlogPostPreview = ({ post }) => {
           </Link>
           <div>
             <div className="mt-4 flex items-center sm:mt-0 ">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white sm:mx-4">
+              <Link
+                href={`/news/author/${author.name
+                  .toLowerCase()
+                  .replace(/\s+/g, '_')}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white sm:mx-4"
+              >
                 {author.name.split(' ').map((name) => name[0])}
-              </div>
-              <span className="ml-2 hover:underline sm:ml-0">
+              </Link>
+              <Link
+                href={`/news/author/${author.name
+                  .toLowerCase()
+                  .replace(/\s+/g, '_')}`}
+                className="ml-2 hover:underline sm:ml-0"
+              >
                 {author.name}
-              </span>
+              </Link>
             </div>
           </div>
         </div>
