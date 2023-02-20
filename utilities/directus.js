@@ -143,3 +143,32 @@ export const getAllTags = async () => {
   return tagList;
 };
 
+export const getAllAuthors = async () => {
+  const authors = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+          query {
+            authors {
+              name
+          }
+        }
+        `,
+    }),
+  });
+
+  const data = await authors.json();
+  // for each author_name in data.data.authors, add to an object
+  const authorList = [];
+  data.data.authors.forEach((author) => {
+    authorList.push(author.name.toLowerCase().replace(/\s+/g, '_'));
+  });
+
+  return authorList;
+}
+
+
