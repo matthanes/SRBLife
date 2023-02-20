@@ -48,9 +48,6 @@ const BlogPostList = ({ blog_posts }) => {
 
   return (
     <section>
-      <h1 className="container mx-auto mt-4 mb-4 border-b-2 px-8 font-headings text-4xl font-black text-secondary sm:px-20">
-        News Posts
-      </h1>
       <div className="mx-auto w-full">
         <div className="flex justify-center">
           <input

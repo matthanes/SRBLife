@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home - Schomburg Road Baptist Church Columbus, Georgia</title>
+        <title>Home | Schomburg Road Baptist Church Columbus, Georgia</title>
         <meta
           name="keywords"
           content="church, family-friendly, baptist, small, kids, nursery"
@@ -45,11 +45,11 @@ export default function Home() {
         <Slider slides={slides} timing={5000}></Slider>
       </header>
       <div className="container my-8 mx-auto px-4 md:px-12">
-        <div className="flex flex-wrap -mx-1 lg:-mx-4">
+        <div className="-mx-1 flex flex-wrap lg:-mx-4">
           <Homecard
             title="7155 Schomburg Road"
             subtitle="Columbus, GA 31909"
-            icon={<FaMapMarkedAlt className="block mx-auto" size="100" />}
+            icon={<FaMapMarkedAlt className="mx-auto block" size="100" />}
             target="_blank"
             href="https://goo.gl/maps/6vrJMr3Cd86JH3do9"
             rel="noopener"
@@ -57,49 +57,49 @@ export default function Home() {
           <Homecard
             title="Sunday Worship"
             subtitle="10:30 AM"
-            icon={<FaClock className="block mx-auto" size="100" />}
+            icon={<FaClock className="mx-auto block" size="100" />}
             target="_self"
             href="#"
           />
           <Homecard
             title="Call Us"
             subtitle="706-561-0193"
-            icon={<FaPhone className="block mx-auto" size="100" />}
+            icon={<FaPhone className="mx-auto block" size="100" />}
             target="_self"
             href="tel:706-561-0193"
           />
           <Homecard
             title="Email For Info"
             subtitle="info@srblife.com"
-            icon={<FaEnvelope className="block mx-auto" size="100" />}
+            icon={<FaEnvelope className="mx-auto block" size="100" />}
             target="_self"
             href="mailto:info@srblife.com"
           />
           <Homecard
             title="Prayer Request"
             subtitle="prayer@srblife.com"
-            icon={<FaEnvelope className="block mx-auto" size="100" />}
+            icon={<FaEnvelope className="mx-auto block" size="100" />}
             target="_self"
             href="mailto:prayer@srblife.com"
           />
           <Homecard
             title="Email The Pastor"
             subtitle="PastorBuddy@srblife.com"
-            icon={<FaEnvelope className="block mx-auto" size="100" />}
+            icon={<FaEnvelope className="mx-auto block" size="100" />}
             target="_self"
             href="mailto:PastorBuddy@srblife.com"
           />
           <Homecard
             title="Calendar"
             subtitle="Important Dates"
-            icon={<FaCalendar className="block mx-auto" size="100" />}
+            icon={<FaCalendar className="mx-auto block" size="100" />}
             target="_self"
             href="/calendar"
           />
           <Homecard
             title="SRBLife"
             subtitle="Facebook"
-            icon={<FaFacebook className="block mx-auto" size="100" />}
+            icon={<FaFacebook className="mx-auto block" size="100" />}
             target="_blank"
             href="https://www.facebook.com/SRBLife"
             rel="noopener"
@@ -108,7 +108,7 @@ export default function Home() {
           <Homecard
             title="YouTube"
             subtitle="Sermons"
-            icon={<FaYoutube className="block mx-auto" size="100" />}
+            icon={<FaYoutube className="mx-auto block" size="100" />}
             target="_blank"
             href="https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/"
             rel="noopener"
