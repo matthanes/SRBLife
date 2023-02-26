@@ -23,8 +23,8 @@ export const Post = ({ singlePost }) => {
         {/* <meta name="keywords" content={tags} /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="prose prose-stone mx-auto my-4 px-4 prose-h1:text-secondary md:px-0 lg:prose-xl">
-        <h1>{title}</h1>
+      <article className="prose prose-stone mx-auto my-4 px-4 prose-h1:text-secondary md:px-0 lg:prose-xl">
+        <h1 className="!text-5xl">{title}</h1>
         <div className="mb-4 flex flex-col border-y-2 border-secondary py-3 font-bold xs:flex-row xs:items-center xs:justify-between">
           <span>{formattedDate}</span>
           <div className="flex items-center">
@@ -52,7 +52,7 @@ export const Post = ({ singlePost }) => {
             ))}
           </div>
         </div>
-      </section>
+      </article>
     </>
   );
 };
