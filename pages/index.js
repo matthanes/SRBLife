@@ -30,6 +30,7 @@ export default function Home() {
   return (
     <>
       <Head>
+        <title>Home | Schomburg Road Baptist Church Columbus, Georgia</title>
         <title>Schomburg Road Baptist Church Columbus, Georgia</title>
         <meta
           name="keywords"
