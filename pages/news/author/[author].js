@@ -3,6 +3,7 @@ import BlogPostList from '../../../components/BlogPostList';
 import { getAllPublished, getAllAuthors } from '../../../utilities/directus';
 
 import React from 'react';
+import AuthorBio from '../../../components/AuthorBio';
 
 export const Author = ({ postsByAuthor }) => {
   return (
@@ -18,9 +19,7 @@ export const Author = ({ postsByAuthor }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="container mx-auto mt-4 mb-4 border-b-2 px-8 font-headings text-4xl font-black text-secondary sm:px-20">
-        News Posts By Author - {postsByAuthor[0].author.name}
-      </h1>
+      <AuthorBio author={postsByAuthor[0].author} />
       <BlogPostList blog_posts={postsByAuthor} />
     </>
   );

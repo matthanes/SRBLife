@@ -98,6 +98,11 @@ export const getAllPublished = async () => {
           publish_date
           author {
               name
+              bio
+              profile_pic {
+                filename_disk
+                description
+            }
           }
           tags {
               tags_id {
@@ -155,6 +160,11 @@ export const getAllAuthors = async () => {
           query {
             authors {
               name
+              bio
+              profile_pic {
+                filename_disk
+                description
+            }
           }
         }
         `,

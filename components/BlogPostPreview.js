@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import ExportedImage from 'next-image-export-optimizer';
 
 const BlogPostPreview = ({ post }) => {
   const { author, title, publish_date, description, slug, tags } = post;
@@ -47,15 +48,25 @@ const BlogPostPreview = ({ post }) => {
                 href={`/news/author/${author.name
                   .toLowerCase()
                   .replace(/\s+/g, '_')}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white sm:mx-4"
+                className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white"
               >
-                {author.name.split(' ').map((name) => name[0])}
+                {author?.profile_pic !== null ? (
+                  <ExportedImage
+                    className="rounded-full"
+                    width={40}
+                    height={40}
+                    src={`https://srblog.srblife.com/assets/${author?.profile_pic?.filename_disk}`}
+                    alt={author.bio}
+                  />
+                ) : (
+                  author.name.split(' ').map((name) => name[0])
+                )}
               </Link>
               <Link
                 href={`/news/author/${author.name
                   .toLowerCase()
                   .replace(/\s+/g, '_')}`}
-                className="ml-2 hover:underline sm:ml-0"
+                className="font-semibold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
               >
                 {author.name}
               </Link>
