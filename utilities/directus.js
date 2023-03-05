@@ -44,6 +44,10 @@ export const getSinglePost = async (slug) => {
             publish_date
             author {
                 name
+                profile_pic {
+                  filename_disk
+                  description
+              }
             }
             tags {
                 tags_id {
