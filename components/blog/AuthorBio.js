@@ -1,5 +1,4 @@
 import React from 'react'
-import ExportedImage from 'next-image-export-optimizer';
 import { Markup } from 'react-render-markup';
 
 const AuthorBio = ({author}) => {
@@ -9,7 +8,7 @@ const AuthorBio = ({author}) => {
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-3 place-items-center sm:items-center ">
             <div className="flex h-40 w-40 items-center justify-center rounded-md bg-primary object-cover text-7xl text-white sm:mx-4">
               {author.profile_pic !== null ? (
-                <ExportedImage
+                <img
                   className="rounded-md"
                   width={160}
                   height={160}
