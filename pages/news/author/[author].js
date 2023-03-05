@@ -1,17 +1,16 @@
 import Head from 'next/head';
-import BlogPostList from '../../../components/BlogPostList';
+import BlogPostList from '../../../components/blog/BlogPostList';
 import { getAllPublished, getAllAuthors } from '../../../utilities/directus';
-
 import React from 'react';
-import AuthorBio from '../../../components/AuthorBio';
+import AuthorBio from '../../../components/blog/AuthorBio';
 
 export const Author = ({ postsByAuthor }) => {
+  const title = `SRBlog by ${postsByAuthor[0].author.name} | Schomburg Road Baptist Church Columbus, Georgia`;
   return (
     <>
       <Head>
         <title>
-          SRBlog by {postsByAuthor[0].author.name} | Schomburg Road Baptist
-          Church Columbus, Georgia
+          {title}
         </title>
         <meta
           name="description"

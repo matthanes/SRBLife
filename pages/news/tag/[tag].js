@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import BlogPostList from '../../../components/BlogPostList';
+import BlogPostList from '../../../components/blog/BlogPostList';
 import { getAllTags, getAllPublished } from '../../../utilities/directus';
 
 import React from 'react';

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { getAllPublished } from '../../utilities/directus';
-import BlogPostList from '../../components/BlogPostList';
+import BlogPostList from '../../components/blog/BlogPostList';
 
 export default function BlogPosts({ blog_posts }) {
   return (
