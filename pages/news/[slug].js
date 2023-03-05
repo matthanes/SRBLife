@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import AuthorAttribution from '../../components/blog/AuthorAttribution';
 import { Markup } from 'react-render-markup';
 import { getAllPublished, getSinglePost } from '../../utilities/directus';
 
@@ -14,7 +15,7 @@ export const Post = ({ singlePost }) => {
   });
 
   return (
-    <>
+    <div className="bg-slate-100">
       <Head>
         <title>
           {`${title} | Schomburg Road Baptist Church Columbus, Georgia`}
@@ -23,37 +24,34 @@ export const Post = ({ singlePost }) => {
         {/* <meta name="keywords" content={tags} /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <article className="prose prose-stone mx-auto my-4 px-4 prose-h1:text-secondary md:px-0 lg:prose-xl">
-        <h1 className="!text-5xl">{title}</h1>
-        <div className="mb-4 flex flex-col border-y-2 border-secondary py-3 font-bold xs:flex-row xs:items-center xs:justify-between">
-          <span>{formattedDate}</span>
-          <div className="flex items-center">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white sm:mx-4">
-              {author?.name?.split(' ').map((name) => name[0])}
+      <article className="min-h-screen-foot p-4">
+        <div className="relative w-full bg-white px-6 py-12 shadow-xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
+          <div className="prose prose-stone mx-auto prose-h1:text-secondary lg:prose-xl">
+            <h1 className="!text-4xl">{title}</h1>
+            <div className="mb-4 flex flex-col border-y-2 border-secondary py-3 xs:flex-row xs:items-center xs:justify-between">
+              <span className="font-bold">{formattedDate}</span>
+              <AuthorAttribution author={author} />
             </div>
-            <span className="ml-2 text-lg hover:underline sm:ml-0">
-              {author.name}
-            </span>
-          </div>
-        </div>
-        <Markup markup={post} />
-        <div className="my-10 px-4 md:px-0">
-          <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-2xl text-primary">
-            Post Tags
-          </h3>
-          <div>
-            {tags.map((tag) => (
-              <span
-                className="mx-1 rounded-md bg-primary px-3 py-1 text-white"
-                key={tag.tags_id.tag_name}
-              >
-                {tag.tags_id.tag_name}
-              </span>
-            ))}
+            <Markup markup={post} />
+            <div className="my-10 px-4 md:px-0">
+              <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-xl text-primary">
+                Post Tags
+              </h3>
+              <div>
+                {tags.map((tag) => (
+                  <span
+                    className="mx-1 rounded-md bg-primary px-3 py-1 text-white"
+                    key={tag.tags_id.tag_name}
+                  >
+                    {tag.tags_id.tag_name}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </article>
-    </>
+    </div>
   );
 };
 
