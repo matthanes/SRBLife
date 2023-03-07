@@ -19,7 +19,7 @@ const BlogPostPreview = ({ post }) => {
         </div>
         <div className="mt-3">
           <Link
-            className="text-lg font-bold focus:outline-none focus:ring focus:ring-primary"
+            className="text-lg font-bold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
             href={`/news/${slug}`}
           >
             {title}
