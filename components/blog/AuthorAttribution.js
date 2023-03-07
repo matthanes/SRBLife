@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 const AuthorAttribution = ({ author }) => {
-  console.log(author)
   return (
     <div className="not-prose mt-4 flex items-center sm:mt-0 ">
       <Link
