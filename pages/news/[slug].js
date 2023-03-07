@@ -4,6 +4,7 @@ import { Markup } from 'react-render-markup';
 import { getAllPublished, getSinglePost } from '../../utilities/directus';
 
 import React from 'react';
+import TagsList from '../../components/blog/TagsList';
 
 export const Post = ({ singlePost }) => {
   const { title, description, publish_date, author, post, tags } = singlePost;
@@ -37,16 +38,7 @@ export const Post = ({ singlePost }) => {
               <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-xl text-primary">
                 Post Tags
               </h3>
-              <div>
-                {tags.map((tag) => (
-                  <span
-                    className="mx-1 rounded-md bg-primary px-3 py-1 text-white"
-                    key={tag.tags_id.tag_name}
-                  >
-                    {tag.tags_id.tag_name}
-                  </span>
-                ))}
-              </div>
+              <TagsList tags={tags} />
             </div>
           </div>
         </div>

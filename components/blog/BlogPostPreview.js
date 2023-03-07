@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import ExportedImage from 'next-image-export-optimizer';
 import AuthorAttribution from './AuthorAttribution';
+import TagsList from './TagsList';
 
 const BlogPostPreview = ({ post }) => {
   const { author, title, publish_date, description, slug, tags } = post;
@@ -15,17 +15,7 @@ const BlogPostPreview = ({ post }) => {
       <div className="m-4 w-full max-w-4xl rounded-lg bg-slate-100 px-10 py-6 shadow-sm sm:mx-0">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <span className="mb-4 sm:mb-0">{formattedDate}</span>
-          <div>
-            {tags.map((tag) => (
-              <Link
-                className="mx-1 rounded-md bg-primary px-3 py-1 text-white focus-visible:outline-none focus-visible:ring focus-visible:ring-secondary"
-                href={`/news/tag/${tag.tags_id.tag_name.toLowerCase()}`}
-                key={tag.tags_id.tag_name}
-              >
-                {tag.tags_id.tag_name}
-              </Link>
-            ))}
-          </div>
+          <TagsList tags={tags} />
         </div>
         <div className="mt-3">
           <Link
