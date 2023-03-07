@@ -6,13 +6,14 @@ import React from 'react';
 import titleCase from '../../../utilities/titleCase';
 
 export const Tag = ({ postsByTag, tag }) => {
+  const title = `SRBlog - ${titleCase(
+    tag
+  )} | Schomburg Road Baptist Church Columbus, Georgia`;
+
   return (
     <>
       <Head>
-        <title>
-          SRBlog - {titleCase(tag)} | Schomburg Road Baptist Church Columbus,
-          Georgia
-        </title>
+        <title>{title}</title>
         <meta
           name="description"
           content={`All of the Schomburg Road Baptist Church news posts that contain the '${titleCase(
