@@ -4,6 +4,9 @@ on:
   push:
     branches: [staging]
 
+  repository_dispatch:
+    types: [directus.deploy.staging]
+
 jobs:
   build:
     runs-on: ubuntu-latest
