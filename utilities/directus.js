@@ -183,6 +183,39 @@ export const getAllAuthors = async () => {
   });
 
   return authorList;
-}
+};
 
+export const getAllEvents = async () => {
+  const events = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+          query {
+            Events (
+              filter: { status: { _eq: "published" } },
+              sort: [ "datetime" ]
+          )
+          {
+              id
+              title
+              status
+              category
+              datetime
+              short_description
+              event_location
+              button_link
+              button_text
+          }
+        }
+        `,
+    }),
+  });
 
+  const data = await events.json();
+
+  return data;
+};
