@@ -23,6 +23,7 @@ jobs:
           touch .env.local
           echo NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY=${{secrets.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}} >> .env.local
           echo NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}} >> .env.local
+          echo DIRECTUS_TOKEN=${{secrets.DIRECTUS_TOKEN}} >> .env.local
           npm run export
       - uses: aws-actions/configure-aws-credentials@v1
         with:
