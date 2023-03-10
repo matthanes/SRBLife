@@ -176,13 +176,8 @@ export const getAllAuthors = async () => {
   });
 
   const data = await authors.json();
-  // for each author_name in data.data.authors, add to an object
-  const authorList = [];
-  data.data.authors.forEach((author) => {
-    authorList.push(author.name.toLowerCase().replace(/\s+/g, '_'));
-  });
 
-  return authorList;
+  return data;
 };
 
 export const getAllEvents = async () => {
