@@ -12,6 +12,8 @@ import {
 import Head from 'next/head';
 
 import Live from '../public/img/SRBLive.jpg';
+import EventCard from '../components/EventCard';
+import { getAllEvents } from '../utilities/directus';
 
 const slides = [
   {
@@ -26,7 +28,14 @@ const slides = [
   },
 ];
 
-export default function Home() {
+export default function Home({ Events }) {
+  // filter Events for only those that are in the future
+  const futureEvents = Events.filter((event) => {
+    const eventDate = new Date(event.datetime);
+    const today = new Date();
+    return eventDate > today;
+  });
+
   return (
     <>
       <Head>
@@ -45,7 +54,7 @@ export default function Home() {
         <Slider slides={slides} timing={5000}></Slider>
       </header>
       <div className="container my-8 mx-auto px-4 md:px-12">
-        <div className="-mx-1 flex flex-wrap lg:-mx-4">
+        <div className="mb-12 flex flex-wrap justify-center gap-3 md:gap-6">
           <Homecard
             title="7155 Schomburg Road"
             subtitle="Columbus, GA 31909"
@@ -114,7 +123,24 @@ export default function Home() {
             rel="noopener"
           />
         </div>
+        <h2 className="mx-auto max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
+          Upcoming Events
+        </h2>
+        <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6">
+          {futureEvents.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </div>
       </div>
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const events = await getAllEvents();
+
+  return {
+    props: events.data,
+    revalidate: 60,
+  };
+};

@@ -1,0 +1,50 @@
+import React from 'react';
+import Link from 'next/link';
+
+const EventCard = ({ event }) => {
+  let {
+    title,
+    category,
+    short_description,
+    datetime,
+    button_link,
+    button_text,
+    location,
+  } = event;
+
+  datetime = new Date(datetime).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  });
+
+  return (
+    <div className="flex w-full max-w-sm flex-col rounded-lg bg-white text-center shadow-lg">
+      <div className="rounded-t-lg border-b-2 border-secondary border-opacity-50 bg-primary py-3 px-6 text-lg text-white">
+        {category}
+      </div>
+      <div className="flex-grow p-6">
+        <h3 className="mb-2 text-xl font-medium leading-tight text-neutral-800">
+          {title}
+        </h3>
+        <p className="mb-4 text-base text-neutral-600">{short_description}</p>
+        {button_link && button_text && (
+          <Link
+            className="rounded-lg border border-transparent bg-primary px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-opacity-90 focus-visible:outline-none focus-visible:ring focus-visible:ring-secondary"
+            href={button_link}
+          >
+            {button_text}
+          </Link>
+        )}
+      </div>
+      <div className="border-t-2 border-neutral-100 py-3 px-6">
+        <div>{datetime}</div>
+        <div>{location}</div>
+      </div>
+    </div>
+  );
+};
+
+export default EventCard;

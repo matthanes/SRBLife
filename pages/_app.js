@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
+      if (process.env.NODE_ENV !== 'production') return;
       window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
         page_path: url,
       });
@@ -23,15 +24,19 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {/* Conditionally render the next two <Script /> tags in production only */}
+      {process.env.NODE_ENV === 'production' && (
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        />
+      )}
+      {process.env.NODE_ENV === 'production' && (
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -39,10 +44,11 @@ function MyApp({ Component, pageProps }) {
               page_path: window.location.pathname,
             });
             `,
-        }}
-      />
+          }}
+        />
+      )}
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} key={router.asPath} />
       </Layout>
     </>
   );

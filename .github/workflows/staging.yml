@@ -2,10 +2,10 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [staging]
 
   repository_dispatch:
-    types: [directus.deploy]
+    types: [directus.deploy.staging]
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
       - run: npm ci
       - run: |
           touch .env.local
-          echo NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY=${{secrets.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}} >> .env.local
-          echo NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}} >> .env.local
+          echo NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY=staging_site >> .env.local
+          echo NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=staging_site >> .env.local
           echo DIRECTUS_TOKEN=${{secrets.DIRECTUS_TOKEN}} >> .env.local
           npm run export
       - uses: aws-actions/configure-aws-credentials@v1
@@ -30,8 +30,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: aws s3 sync ./out s3://srblife.com
-
-      - run: aws cloudfront create-invalidation --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+      - run: aws s3 sync ./out s3://staging.srblife.com
