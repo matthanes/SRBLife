@@ -34,11 +34,15 @@ const Nav2 = () => {
                   className="block lg:hidden h-20 w-auto"
                   src="/img/SRB-White-01.svg"
                   alt="SRB Logo"
+                  width={200}
+                  height={80}
                 />
                 <img
                   className="hidden lg:block h-20 w-auto"
                   src="/img/SRB-White-01.svg"
                   alt="SRB Logo"
+                  width={200}
+                  height={80}
                 />
               </div>
               <div className="hidden self-center lg:block sm:ml-6">
