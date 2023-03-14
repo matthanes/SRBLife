@@ -15,6 +15,8 @@ export const Post = ({ singlePost }) => {
     year: 'numeric',
   });
 
+  const tagsList = tags.map((tag) => tag.tags_id.tag_name).join(', ');
+
   return (
     <div className="bg-slate-100">
       <Head>
@@ -22,7 +24,16 @@ export const Post = ({ singlePost }) => {
           {`${title} | Schomburg Road Baptist Church Columbus, Georgia`}
         </title>
         <meta name="description" content={description} />
-        {/* <meta name="keywords" content={tags} /> */}
+        <meta name="keywords" content={tagsList} />
+        <meta property="og:title" content={title} />
+        <meta
+          property="og:description"
+          content={description}
+        />
+        <meta
+          property="og:image"
+          content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <article className="min-h-screen-foot p-4">
