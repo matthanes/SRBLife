@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const AuthorAttribution = ({ author }) => {
   return (
-    <div className="not-prose mt-4 flex items-center sm:mt-0 ">
+    <div className="not-prose flex items-center">
       <Link
         href={`/news/author/${author.name.toLowerCase().replace(/\s+/g, '_')}`}
         className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary object-cover text-white"

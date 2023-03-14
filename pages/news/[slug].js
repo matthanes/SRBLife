@@ -29,7 +29,7 @@ export const Post = ({ singlePost }) => {
         <div className="relative w-full bg-white px-6 py-12 shadow-xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
           <div className="prose prose-stone mx-auto prose-h1:text-secondary lg:prose-xl">
             <h1 className="!text-4xl">{title}</h1>
-            <div className="mb-4 flex flex-col border-y-2 border-secondary py-3 xs:flex-row xs:items-center xs:justify-between">
+            <div className="mb-4 flex items-center justify-between border-y-2 border-secondary py-3">
               <span className="font-bold">{formattedDate}</span>
               <AuthorAttribution author={author} />
             </div>
