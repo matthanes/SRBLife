@@ -16,7 +16,6 @@ export const Author = ({ postsByAuthor, author }) => {
           name="description"
           content={`All of the Schomburg Road Baptist Church news posts that were written by ${author.name}`}
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <AuthorBio author={author} />
       <BlogPostList blog_posts={postsByAuthor} />

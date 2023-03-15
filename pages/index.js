@@ -9,7 +9,6 @@ import {
   FaFacebook,
   FaYoutube,
 } from 'react-icons/fa';
-import Head from 'next/head';
 
 import Live from '../public/img/SRBLive.jpg';
 import EventCard from '../components/EventCard';
@@ -38,18 +37,6 @@ export default function Home({ Events }) {
 
   return (
     <>
-      <Head>
-        <title>Schomburg Road Baptist Church Columbus, Georgia</title>
-        <meta
-          name="keywords"
-          content="church, family-friendly, baptist, small, kids, nursery"
-        />
-        <meta
-          name="description"
-          content="Loving Him, loving them, changing lives! That is our purpose at Schomburg Road Baptist Church in Columbus, Georgia. Everything we do is driven from these six short words. By understanding this statement you will better understand who we are."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <header className="relative min-h-1/3 sm:min-h-1/2 md:min-h-3/4 xl:min-h-screen">
         <Slider slides={slides} timing={5000}></Slider>
       </header>

@@ -34,7 +34,6 @@ export const Post = ({ singlePost }) => {
           property="og:image"
           content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <article className="min-h-screen-foot p-4">
         <div className="relative w-full bg-white px-6 py-12 shadow-xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import Script from 'next/script';
-import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Layout from '../components/Layout';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -21,6 +22,10 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  const canonicalUrl = (
+    `https://srblife.com` + (router.asPath === '/' ? '' : router.asPath)
+  ).split('?')[0];
 
   return (
     <>
@@ -48,6 +53,19 @@ function MyApp({ Component, pageProps }) {
         />
       )}
       <Layout>
+        <Head>
+          <title>Schomburg Road Baptist Church Columbus, Georgia</title>
+          <meta
+            name="keywords"
+            content="church, family-friendly, baptist, small, kids, nursery"
+          />
+          <meta
+            name="description"
+            content="Loving Him, loving them, changing lives! That is our purpose at Schomburg Road Baptist Church in Columbus, Georgia. Everything we do is driven from these six short words. By understanding this statement you will better understand who we are."
+          />
+          <link rel="canonical" href={canonicalUrl} />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Component {...pageProps} key={router.asPath} />
       </Layout>
     </>

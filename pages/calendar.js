@@ -47,7 +47,6 @@ const Calendar = () => {
         </title>
         <meta name="description" content="Church calendar of events." />
         <meta name="keywords" content="calendar" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Modal is rendered in _document.js at the #modal-root div */}

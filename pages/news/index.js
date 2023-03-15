@@ -11,7 +11,6 @@ export default function BlogPosts({ blog_posts }) {
           name="description"
           content="Schomburg Road Baptist Church news and information posts."
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="container mx-auto mt-4 mb-4 border-b-2 px-8 font-headings text-4xl font-black text-secondary sm:px-20">
         News Posts

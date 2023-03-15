@@ -8,8 +8,7 @@ export default function Giving() {
       <Head>
         <title>Giving | Schomburg Road Baptist Church Columbus, Georgia</title>
         <meta name="description" content="Learn how to give to support our ministry and missions." />
-        <meta name="keywords" content="beliefs, doctrine" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content="giving, paypal, tithe, offering, support" />
       </Head>
 
       <div className="min-h-screen-foot">
