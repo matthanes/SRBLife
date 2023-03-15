@@ -15,7 +15,6 @@
     "@fullcalendar/google-calendar": "^6.0.2",
     "@fullcalendar/list": "^6.0.2",
     "@fullcalendar/react": "^6.0.2",
-    "@next/font": "^13.1.6",
     "eslint-config-next": "^13.1.6",
     "graphql": "^16.6.0",
     "html-react-parser": "^3.0.8",
