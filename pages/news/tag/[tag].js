@@ -47,10 +47,19 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await getAllTags();
+  const blog_posts = await getAllPublished();
+  // get all tags from blog_posts and create paths for each tag
+  const tags = blog_posts.data.blog_posts.reduce((acc, post) => {
+    post.tags.forEach((tag) => {
+      if (!acc.includes(tag.tags_id.tag_name)) {
+        acc.push(tag.tags_id.tag_name);
+      }
+    });
+    return acc;
+  }, []);
 
-  const paths = data.map((tag_name) => ({
-    params: { tag: tag_name.toLowerCase() },
+  const paths = tags.map((tag) => ({
+    params: { tag: tag.toLowerCase() },
   }));
 
   return {

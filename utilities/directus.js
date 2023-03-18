@@ -84,7 +84,6 @@ export const getSinglePost = async (slug) => {
 };
 
 export const getAllPublished = async () => {
-  // change query_filter based on node environment
   const query_filter =
     process.env.NODE_ENV === 'development'
       ? `limit: -1, filter: { _or: [
@@ -188,6 +187,14 @@ export const getAllAuthors = async () => {
 };
 
 export const getAllEvents = async () => {
+  const query_filter =
+  process.env.NODE_ENV === 'development'
+    ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "datetime" ]`
+    : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "datetime" ]`;
   const events = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
@@ -198,8 +205,7 @@ export const getAllEvents = async () => {
       query: `
           query {
             Events (
-              filter: { status: { _eq: "published" } },
-              sort: [ "datetime" ]
+              ${query_filter}
           )
           {
               id

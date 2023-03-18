@@ -31,8 +31,8 @@ export default function Home({ Events }) {
   // filter Events for only those that are in the future
   const futureEvents = Events.filter((event) => {
     const eventDate = new Date(event.datetime);
-    const today = new Date();
-    return eventDate > today;
+    const rightNow = new Date();
+    return eventDate > rightNow;
   });
 
   return (
