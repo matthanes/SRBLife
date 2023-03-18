@@ -26,7 +26,8 @@
     "react-big-calendar": "^1.5.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.2.0",
-    "react-render-markup": "^3.5.0"
+    "react-render-markup": "^3.5.0",
+    "react-share": "^4.4.1"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
