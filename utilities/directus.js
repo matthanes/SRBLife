@@ -55,6 +55,10 @@ export const getSinglePost = async (slug) => {
                 }
             }
             slug
+            social_media_image {
+              filename_disk
+              description
+            }
           }
       }
         `,
@@ -120,6 +124,10 @@ export const getAllPublished = async () => {
               }
           }
           slug
+          social_media_image {
+            filename_disk
+            description
+          }
         }
     }
       `,
@@ -188,13 +196,13 @@ export const getAllAuthors = async () => {
 
 export const getAllEvents = async () => {
   const query_filter =
-  process.env.NODE_ENV === 'development'
-    ? `limit: -1, filter: { _or: [
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
       { status: { _eq: "published" } },
       { status: { _eq: "draft" } }
       ] },
       sort: [ "datetime" ]`
-    : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "datetime" ]`;
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "datetime" ]`;
   const events = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
