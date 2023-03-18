@@ -1,12 +1,16 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import AuthorAttribution from '../../components/blog/AuthorAttribution';
 import { Markup } from 'react-render-markup';
 import { getAllPublished, getSinglePost } from '../../utilities/directus';
 
 import React from 'react';
 import TagsList from '../../components/blog/TagsList';
+import SocialShare from '../../components/blog/SocialShare';
 
 export const Post = ({ singlePost }) => {
+  const router = useRouter();
+  const base_url = 'https://srblife.com';
   const { title, description, publish_date, author, post, tags } = singlePost;
 
   const formattedDate = new Date(publish_date).toLocaleDateString('en-US', {
@@ -26,12 +30,15 @@ export const Post = ({ singlePost }) => {
         <meta name="description" content={description} />
         <meta name="keywords" content={tagsList} />
         <meta property="og:title" content={title} />
-        <meta
-          property="og:description"
-          content={description}
-        />
+        <meta property="og:description" content={description} />
         <meta
           property="og:image"
+          content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
+        />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta
+          property="twitter:image"
           content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
         />
       </Head>
@@ -43,6 +50,7 @@ export const Post = ({ singlePost }) => {
               <span className="font-bold">{formattedDate}</span>
               <AuthorAttribution author={author} />
             </div>
+            <SocialShare title={title} base_url={base_url} router={router} size={34} />
             <Markup markup={post} />
             <div className="my-10 px-4 md:px-0">
               <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-xl text-primary">
