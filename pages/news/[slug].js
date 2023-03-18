@@ -11,7 +11,7 @@ import SocialShare from '../../components/blog/SocialShare';
 export const Post = ({ singlePost }) => {
   const router = useRouter();
   const base_url = 'https://srblife.com';
-  const { title, description, publish_date, author, post, tags } = singlePost;
+  const { title, description, publish_date, author, post, tags, social_media_image } = singlePost;
 
   const formattedDate = new Date(publish_date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -33,13 +33,13 @@ export const Post = ({ singlePost }) => {
         <meta property="og:description" content={description} />
         <meta
           property="og:image"
-          content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
+          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}?key=social-media`}
         />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta
           property="twitter:image"
-          content="https://srblog.srblife.com/assets/a8dea79f-6270-407a-9c37-f14101dfcde6"
+          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}?key=social-media`}
         />
       </Head>
       <article className="min-h-screen-foot p-4">
