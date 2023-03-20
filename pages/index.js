@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Homecard from '../components/Homecard';
 import Slider from '../components/Slider';
 import {
@@ -28,12 +29,16 @@ const slides = [
 ];
 
 export default function Home({ Events }) {
-  // filter Events for only those that are in the future
-  const futureEvents = Events.filter((event) => {
-    const eventDate = new Date(event.datetime);
-    const rightNow = new Date();
-    return eventDate > rightNow;
-  });
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  // useEffect to filter the events for only those that are in the future
+  useEffect(() => {
+    const futureEvents = Events.filter((event) => {
+      const eventDate = new Date(event.datetime);
+      const rightNow = new Date();
+      return eventDate > rightNow;
+    });
+    setFilteredEvents(futureEvents);
+  }, [Events]);
 
   return (
     <>
@@ -114,9 +119,11 @@ export default function Home({ Events }) {
           Upcoming Events
         </h2>
         <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6">
-          {futureEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+          {filteredEvents !== []
+            ? filteredEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))
+            : <div>LOADING...</div>}
         </div>
       </div>
     </>
