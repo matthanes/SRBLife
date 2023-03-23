@@ -33,13 +33,13 @@ export const Post = ({ singlePost }) => {
         <meta property="og:description" content={description} />
         <meta
           property="og:image"
-          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}?key=social-media`}
+          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}`}
         />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta
           property="twitter:image"
-          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}?key=social-media`}
+          content={`https://srblog.srblife.com/assets/${social_media_image.filename_disk}`}
         />
       </Head>
       <article className="min-h-screen-foot p-4">
