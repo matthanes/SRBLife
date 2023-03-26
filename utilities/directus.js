@@ -90,11 +90,13 @@ export const getSinglePost = async (slug) => {
 export const getAllPublished = async () => {
   const query_filter =
     process.env.NODE_ENV === 'development'
-      ? `limit: -1, filter: { _or: [
+      ? `limit: -1,
+        sort:"-publish_date",
+        filter: { _or: [
         { status: { _eq: "published" } },
         { status: { _eq: "draft" } }
       ] }`
-      : `limit: -1, filter: { status: { _eq: "published" } }`;
+      : `limit: -1, sort:"-publish_date", filter: { status: { _eq: "published" } }`;
   const blog_posts = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
