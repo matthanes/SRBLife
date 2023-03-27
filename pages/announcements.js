@@ -20,7 +20,7 @@ export default function Announcements() {
 
       <div className='container mx-auto relative overflow-hidden pt-[56.25%] xl:max-w-5xl xl:pt-0 xl:h-[576px]'>
         <iframe className='absolute inset-0 w-full h-full'
-          src="https://srblife-my.sharepoint.com/personal/matt_srblife_com/_layouts/15/Doc.aspx?sourcedoc={e536c5de-380b-4b1a-a82d-018387ac7892}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="100%" height="600px"
+          src="https://srblife-my.sharepoint.com/:p:/p/matt/Ed7FNuULOBpLqC0Bg4eseJIBYlbEn4UXKVuCTDLpKrHmng;action=embedview&amp;wdAr=1.7777777777777777" width="100%" height="600px"
           frameborder="0"
         ></iframe>
       </div>
