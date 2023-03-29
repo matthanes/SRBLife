@@ -256,7 +256,7 @@ export const getAnnouncements = async () => {
     body: JSON.stringify({
       query: `
       query {
-        announcements 
+        announcements (${query_filter})
       {
           id
           sort
