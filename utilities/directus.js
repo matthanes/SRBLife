@@ -237,3 +237,44 @@ export const getAllEvents = async () => {
 
   return data;
 };
+
+export const getAnnouncements = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "sort" ]`
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "sort" ]`;
+  const events = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+      query {
+        announcements 
+      {
+          id
+          sort
+          title
+          alt_text
+          status
+          link_label
+          slide_link
+          slide {
+              filename_disk
+          }
+      }
+    }
+        `,
+    }),
+  });
+
+  const data = await events.json();
+
+  return data;
+};

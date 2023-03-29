@@ -11,34 +11,34 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 
-import Live from '../public/img/SRBLive.jpg';
 import EventCard from '../components/EventCard';
-import { getAllEvents } from '../utilities/directus';
+import { getAllEvents, getAnnouncements } from '../utilities/directus';
 
-const slides = [
-  {
-    url: 'https://www.youtube.com/channel/UCSaSFpr8E-PMYfi1QoqwVuw/live',
-    ariaLabelText: 'SRB Live YouTube Channel',
-    title: 'SRB Live',
-    subtitle: 'SRB Live and In Person This Sunday!',
-    alt: 'SRB Live and In Person This Sunday!',
-    imgLink: Live,
-    opacity: 0,
-    objectPosition: 'object-center',
-  },
-];
-
-export default function Home({ Events }) {
+export default function Home({events, announcements}) {
   const [filteredEvents, setFilteredEvents] = useState([]);
   // useEffect to filter the events for only those that are in the future
   useEffect(() => {
-    const futureEvents = Events.filter((event) => {
+    const futureEvents = events.filter((event) => {
       const eventDate = new Date(event.datetime);
       const rightNow = new Date();
       return eventDate > rightNow;
     });
     setFilteredEvents(futureEvents);
-  }, [Events]);
+  }, [events]);
+
+  const slides = announcements.map((announcement) => {
+    return {
+      url: announcement.slide_link,
+      ariaLabelText: announcement.link_label,
+      title: announcement.title,
+      subtitle: announcement.subtitle ?? '',
+      alt: announcement.alt,
+      imgLink:
+        'https://srblog.srblife.com/assets/' + announcement.slide.filename_disk,
+      opacity: 0,
+      objectPosition: 'object-center',
+    };
+  });
 
   return (
     <>
@@ -132,9 +132,13 @@ export default function Home({ Events }) {
 
 export const getStaticProps = async () => {
   const events = await getAllEvents();
+  const announcements = await getAnnouncements();
 
   return {
-    props: events.data,
+    props: {
+      events: events.data.Events,
+      announcements: announcements.data.announcements,
+    },
     revalidate: 60,
   };
 };
