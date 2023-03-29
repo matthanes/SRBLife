@@ -43,3 +43,6 @@ yarn-error.log*
 /.env.development
 /.env.production
 /.env.local
+/public/img/nextImageExportOptimizer
+/public/nextImageExportOptimizer
+/remoteImagesForOptimization

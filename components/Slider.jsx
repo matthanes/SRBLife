@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import ExportedImage from 'next-image-export-optimizer';
+import srcSet  from '../utilities/srcset';
 
 const Slider = ({ slides, timing, children }) => {
   const timerRef = useRef(null);
@@ -40,17 +40,16 @@ const Slider = ({ slides, timing, children }) => {
       {/* Image */}
       {/* map through slides and output ExportedImage Component */}
       {slides.map((slide, index) => (
-        <ExportedImage
+        <img
           src={slide.imgLink}
           key={index}
-          fill
-          priority
-          placeholder="blur"
-          className={`z-0 object-cover ${slide.objectPosition} ${
+          alt={slide.alt}
+          className={`absolute inset-0 w-full h-full z-0 object-cover ${slide.objectPosition} ${
             index === currentSlide ? 'opacity-1' : 'opacity-0'
           } transition-all duration-1000 ease-in-out`}
-          alt={slide.alt}
-        ></ExportedImage>
+          sizes="100vw"
+          srcSet={srcSet(slide.imgLink)}
+        />
       ))}
 
       {/* Overlay */}
