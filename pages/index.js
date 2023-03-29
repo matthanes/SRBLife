@@ -32,7 +32,7 @@ export default function Home({events, announcements}) {
       ariaLabelText: announcement.link_label,
       title: announcement.title,
       subtitle: announcement.subtitle ?? '',
-      alt: announcement.alt,
+      alt: announcement.alt_text,
       imgLink:
         'https://srblog.srblife.com/assets/' + announcement.slide.filename_disk,
       opacity: 0,
