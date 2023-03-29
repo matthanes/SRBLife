@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import srcSet  from '../utilities/srcset';
+import srcSet from '../utilities/srcset';
 
 const Slider = ({ slides, timing, children }) => {
   const timerRef = useRef(null);
@@ -41,10 +41,13 @@ const Slider = ({ slides, timing, children }) => {
       {/* map through slides and output ExportedImage Component */}
       {slides.map((slide, index) => (
         <img
+          fetchpriority="high"
           src={slide.imgLink}
           key={index}
           alt={slide.alt}
-          className={`absolute inset-0 w-full h-full z-0 object-cover ${slide.objectPosition} ${
+          className={`absolute inset-0 z-0 h-full w-full object-cover ${
+            slide.objectPosition
+          } ${
             index === currentSlide ? 'opacity-1' : 'opacity-0'
           } transition-all duration-1000 ease-in-out`}
           sizes="100vw"
