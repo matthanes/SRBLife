@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://srblife.com/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/calendar/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/giving/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/ourbeliefs/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/ourpurpose/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/salvation/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/tag/news/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/tag/students/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/tag/events/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/author/david_fisher/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/author/matt_hanes/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://srblife.com/news/mario-kart-tournament/</loc><lastmod>2023-03-18T13:41:14.542Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/calendar/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/giving/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/ourbeliefs/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/ourpurpose/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/salvation/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/tag/students/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/tag/news/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/tag/events/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/tag/favorite chapter/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/tag/blog/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/author/david_fisher/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/author/matt_hanes/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/author/pastor_buddy/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/student-car-wash-fundraiser/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/foolish-galatians/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/family-game-night/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://srblife.com/news/mario-kart-tournament/</loc><lastmod>2023-04-11T18:42:16.038Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
