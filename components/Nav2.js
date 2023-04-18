@@ -8,7 +8,7 @@ const links = [
   { name: 'Calendar', target: '/calendar' },
   {
     name: 'About Us',
-    target: '/about',
+    target: null,
     sublinks: [
       { name: 'Our Beliefs', target: '/ourbeliefs' },
       { name: 'Our Purpose', target: '/ourpurpose' },
@@ -74,9 +74,9 @@ const Nav2 = () => {
                 key={link.name}
                 onClick={() => setActive(!active)}
               >
-                <Link href={link.target} as={link.as}>
+                {link.target === null ? <div>{link.name}</div> : <Link href={link.target} as={link.as}>
                   {link.name}
-                </Link>
+                </Link>}
               </li>
             ))}
           </div>
