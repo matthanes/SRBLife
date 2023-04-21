@@ -27,7 +27,7 @@ const Nav2 = () => {
   };
 
   return (
-    <header className="sticky top-0 z-10 bg-primary">
+    <header className="sticky top-0 z-10 select-none bg-primary">
       <nav>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
@@ -61,9 +61,13 @@ const Nav2 = () => {
             ' lg:hidden'
           }
         >
-          <div className="flex flex-col justify-center items-center mt-16 space-y-1 px-2 pb-3 pt-2">
+          <div className="mt-16 flex flex-col items-center justify-center space-y-1 px-2 pb-3 pt-2">
             {links.map((link) => (
-              <NavMobileItem handleClick={handleClick} link={link} key={link.name} />
+              <NavMobileItem
+                handleClick={handleClick}
+                link={link}
+                key={link.name}
+              />
             ))}
           </div>
         </div>
