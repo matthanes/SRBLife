@@ -9,6 +9,7 @@ const NavMobileItem = ({ link, handleClick }) => {
     <li
       className="list-none rounded-md px-3 py-4 font-rock-salt font-semibold text-2xl text-gray-100 transition-all duration-300 ease-in-out"
       key={link.name}
+      onClick={() => link.sublinks && setShowSublinks(!showSublinks)}
     >
       <div className="flex items-center justify-center">
         {link.target === null ? (
@@ -28,7 +29,6 @@ const NavMobileItem = ({ link, handleClick }) => {
               setShowSublinks(!showSublinks);
             }
           } }
-            onClick={() => setShowSublinks(!showSublinks)}
           />
         )}
       </div>
