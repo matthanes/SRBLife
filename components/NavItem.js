@@ -3,10 +3,14 @@ import { FaChevronDown } from 'react-icons/fa';
 import Link from 'next/link';
 
 const NavItem = ({ link }) => {
+  const [showSublinks, setShowSublinks] = useState(false);
+
   return (
     <li
       className="group relative flex list-none items-center rounded-md px-3 py-2 font-rock-salt font-semibold text-gray-100 transition-all duration-300 ease-in-out hover:bg-secondary hover:text-white"
       key={link.name}
+      onMouseEnter={() => setShowSublinks(true)}
+      onMouseLeave={() => setShowSublinks(false)}
     >
       {link.target === null ? (
         <div className='hover:select-none'>{link.name}</div>
@@ -15,12 +19,19 @@ const NavItem = ({ link }) => {
       )}
       {link.sublinks && (
         <FaChevronDown
-          className={`ml-3 transition-all duration-300 ease-in-out hover:cursor-pointer group-hover:rotate-180 group-hover:transform`}
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === '40') {
+              e.preventDefault();
+              setShowSublinks(!showSublinks);
+            }
+          } }
+          className={`ml-3 transition-all duration-300 ease-in-out ${showSublinks ? 'rotate-180 transform' : ''}`}
         />
       )}
       {link.sublinks && (
         <ul
-          className={`absolute left-0 top-10 hidden min-w-[175px] bg-primary pt-3 text-gray-100 group-hover:block`}
+          className={`absolute left-0 top-10 min-w-[175px] bg-primary pt-3 text-gray-100 ${showSublinks ? 'block' : 'hidden'}`}
         >
           {link.sublinks.map((sublink) => (
             <li

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Hamburger from './Hamburger';
 import NavItem from './NavItem';
+import NavMobileItem from './NavMobileItem';
+
 const links = [
   { name: 'Home', target: '/' },
   { name: 'News', target: '/news' },
@@ -37,14 +38,7 @@ const Nav2 = () => {
             <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-between">
               <div className="flex flex-shrink-0 items-center">
                 <img
-                  className="block h-20 w-auto lg:hidden"
-                  src="/img/SRB-White-01.svg"
-                  alt="SRB Logo"
-                  width={200}
-                  height={80}
-                />
-                <img
-                  className="hidden h-20 w-auto lg:block"
+                  className="block h-20 w-auto"
                   src="/img/SRB-White-01.svg"
                   alt="SRB Logo"
                   width={200}
@@ -54,7 +48,7 @@ const Nav2 = () => {
               <div className="hidden self-center sm:ml-6 lg:block">
                 <ul className="flex space-x-8">
                   {links.map((link) => (
-                   <NavItem link={link} /> 
+                    <NavItem link={link} key={link.name} />
                   ))}
                 </ul>
               </div>
@@ -67,17 +61,9 @@ const Nav2 = () => {
             ' lg:hidden'
           }
         >
-          <div className="mt-16 space-y-1 px-2 pb-3 pt-2">
+          <div className="flex flex-col justify-center items-center mt-16 space-y-1 px-2 pb-3 pt-2">
             {links.map((link) => (
-              <li
-                className="block select-none list-none rounded-md px-3 py-4 text-center font-rock-salt text-2xl font-semibold text-gray-100 hover:bg-secondary hover:text-white"
-                key={link.name}
-                onClick={() => setActive(!active)}
-              >
-                {link.target === null ? <div>{link.name}</div> : <Link href={link.target} as={link.as}>
-                  {link.name}
-                </Link>}
-              </li>
+              <NavMobileItem handleClick={handleClick} link={link} key={link.name} />
             ))}
           </div>
         </div>
