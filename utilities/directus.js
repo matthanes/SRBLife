@@ -55,6 +55,10 @@ export const getSinglePost = async (slug) => {
                 }
             }
             slug
+            social_media_image {
+              filename_disk
+              description
+            }
           }
       }
         `,
@@ -66,17 +70,17 @@ export const getSinglePost = async (slug) => {
 
   const files = await getFiles();
 
-  // find images in singlePost.post and replace the src URL with cdnUrl
-  const images = singlePost.post.match(/<img.*?src=".*?".*?>/g);
-  if (images) {
-    images.forEach((image) => {
-      const src = image.match(/src=".*?"/g)[0];
-      const fileId = removeParams(getSrcKey(src));
-      const file = files.find((file) => file.id === fileId);
-      const newSrc = `${cdnUrl}/${file.filename_disk}`;
-      singlePost.post = singlePost.post.replace(src, `src="${newSrc}"`);
-    });
-  }
+  // // find images in singlePost.post and replace the src URL with cdnUrl
+  // const images = singlePost.post.match(/<img.*?src=".*?".*?>/g);
+  // if (images) {
+  //   images.forEach((image) => {
+  //     const src = image.match(/src=".*?"/g)[0];
+  //     const fileId = removeParams(getSrcKey(src));
+  //     const file = files.find((file) => file.id === fileId);
+  //     const newSrc = `${cdnUrl}/${file.filename_disk}`;
+  //     singlePost.post = singlePost.post.replace(src, `src="${newSrc}"`);
+  //   });
+  // }
 
   return {
     singlePost,
@@ -84,6 +88,15 @@ export const getSinglePost = async (slug) => {
 };
 
 export const getAllPublished = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1,
+        sort:"-publish_date",
+        filter: { _or: [
+        { status: { _eq: "published" } },
+        { status: { _eq: "draft" } }
+      ] }`
+      : `limit: -1, sort:"-publish_date", filter: { status: { _eq: "published" } }`;
   const blog_posts = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
@@ -92,9 +105,8 @@ export const getAllPublished = async () => {
     },
     body: JSON.stringify({
       query: `query {
-        blog_posts (
-          filter: { status: { _eq: "published" } },
-          sort: [ "-publish_date" ]
+        blog_posts(
+          ${query_filter}
       )
         {
           title
@@ -114,6 +126,10 @@ export const getAllPublished = async () => {
               }
           }
           slug
+          social_media_image {
+            filename_disk
+            description
+          }
         }
     }
       `,
@@ -181,6 +197,14 @@ export const getAllAuthors = async () => {
 };
 
 export const getAllEvents = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "datetime" ]`
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "datetime" ]`;
   const events = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
@@ -191,8 +215,7 @@ export const getAllEvents = async () => {
       query: `
           query {
             Events (
-              filter: { status: { _eq: "published" } },
-              sort: [ "datetime" ]
+              ${query_filter}
           )
           {
               id
@@ -206,6 +229,47 @@ export const getAllEvents = async () => {
               button_text
           }
         }
+        `,
+    }),
+  });
+
+  const data = await events.json();
+
+  return data;
+};
+
+export const getAnnouncements = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "sort" ]`
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "sort" ]`;
+  const events = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+      query {
+        announcements (${query_filter})
+      {
+          id
+          sort
+          title
+          alt_text
+          status
+          link_label
+          slide_link
+          slide {
+              filename_disk
+          }
+      }
+    }
         `,
     }),
   });

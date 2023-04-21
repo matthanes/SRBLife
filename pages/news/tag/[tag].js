@@ -20,7 +20,6 @@ export const Tag = ({ postsByTag, tag }) => {
             tag
           )}' tag`}
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="container mx-auto mt-4 mb-4 border-b-2 px-8 font-headings text-4xl font-black text-secondary sm:px-20">
         News Posts By Tag - {titleCase(tag)}
@@ -48,10 +47,19 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await getAllTags();
+  const blog_posts = await getAllPublished();
+  // get all tags from blog_posts and create paths for each tag
+  const tags = blog_posts.data.blog_posts.reduce((acc, post) => {
+    post.tags.forEach((tag) => {
+      if (!acc.includes(tag.tags_id.tag_name)) {
+        acc.push(tag.tags_id.tag_name);
+      }
+    });
+    return acc;
+  }, []);
 
-  const paths = data.map((tag_name) => ({
-    params: { tag: tag_name.toLowerCase() },
+  const paths = tags.map((tag) => ({
+    params: { tag: tag.toLowerCase() },
   }));
 
   return {

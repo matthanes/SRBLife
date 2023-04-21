@@ -12,7 +12,6 @@ export default function Salvation() {
           content="John 3:16-17 For this is how God loved the world: He gave his one and only Son, so that everyone who believes in him will not perish but have eternal life. God sent his Son into the world not to judge the world, but to save the world through him."
         />
         <meta name="keywords" content="saved, eternal life, baptism" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">

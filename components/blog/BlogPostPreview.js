@@ -17,23 +17,23 @@ const BlogPostPreview = ({ post }) => {
           <span className="mb-4 sm:mb-0">{formattedDate}</span>
           <TagsList tags={tags} />
         </div>
-        <div className="mt-3">
+        <div className="flex flex-col items-center mt-3 sm:block">
           <Link
-            className="text-lg font-bold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
+            className="text-xl font-bold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
             href={`/news/${slug}`}
           >
             {title}
           </Link>
-          <p className="mt-2 line-clamp-6 md:line-clamp-3">{description}</p>
+          <p className="mt-2 line-clamp-6 md:line-clamp-3 text-justify sm:text-left">{description}</p>
         </div>
-        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 mx-auto flex flex-col items-center sm:flex-row sm:items-center sm:justify-between">
           <Link
-            className="font-semibold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
+            className="mb-4 font-semibold text-primary hover:underline focus:outline-none focus:ring focus:ring-primary"
             href={`/news/${slug}`}
           >
             Read More
           </Link>
-          <div>
+          <div className='sm:ml-auto'>
             <AuthorAttribution author={author} />
           </div>
         </div>

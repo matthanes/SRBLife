@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import ExportedImage from 'next-image-export-optimizer';
+import srcSet from '../utilities/srcset';
 
 const Slider = ({ slides, timing, children }) => {
   const timerRef = useRef(null);
@@ -24,24 +24,35 @@ const Slider = ({ slides, timing, children }) => {
     };
   }, [currentSlide]);
 
-  const { url, ariaLabelText, title, subtitle, alt, objectPosition, imgLink, opacity } =
-    slides[currentSlide];
+  const {
+    url,
+    ariaLabelText,
+    title,
+    subtitle,
+    alt,
+    objectPosition,
+    imgLink,
+    opacity,
+  } = slides[currentSlide];
 
   return (
     <div className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[75vh] lg:min-h-screen">
       {/* Image */}
       {/* map through slides and output ExportedImage Component */}
       {slides.map((slide, index) => (
-        <ExportedImage
+        <img
+          fetchpriority="high"
           src={slide.imgLink}
           key={index}
-          fill
-          priority
-          className={`z-0 object-cover ${slide.objectPosition} ${
+          alt={slide.alt}
+          className={`absolute inset-0 z-0 h-full w-full object-cover ${
+            slide.objectPosition
+          } ${
             index === currentSlide ? 'opacity-1' : 'opacity-0'
           } transition-all duration-1000 ease-in-out`}
-          alt={slide.alt}
-        ></ExportedImage>
+          sizes="100vw"
+          srcSet={srcSet(slide.imgLink)}
+        />
       ))}
 
       {/* Overlay */}
@@ -49,7 +60,7 @@ const Slider = ({ slides, timing, children }) => {
         <a
           href={url}
           aria-label={ariaLabelText}
-          className={`absolute top-0 left-1/2 -translate-x-1/2 h-full w-[80vw] bg-black opacity-${opacity}`}
+          className={`absolute top-0 left-1/2 h-full w-[80vw] -translate-x-1/2 bg-black opacity-${opacity}`}
         ></a>
       ) : (
         <div
@@ -62,13 +73,13 @@ const Slider = ({ slides, timing, children }) => {
         <>
           {/* Arrows */}
           <button
-            className="z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 left-4 md:left-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
+            className="z-1 absolute top-1/2 left-4 h-8 w-8 -translate-y-1/2 cursor-pointer select-none text-center text-xl text-white md:left-8 md:h-16 md:w-16 md:text-3xl"
             onClick={goToLeft}
           >
             ˂
           </button>
           <button
-            className="z-1 w-8 h-8 md:w-16 md:h-16 text-center absolute top-1/2 right-4 md:right-8 -translate-y-1/2 cursor-pointer select-none text-xl md:text-3xl text-white"
+            className="z-1 absolute top-1/2 right-4 h-8 w-8 -translate-y-1/2 cursor-pointer select-none text-center text-xl text-white md:right-8 md:h-16 md:w-16 md:text-3xl"
             onClick={goToRight}
           >
             ˃
@@ -79,7 +90,7 @@ const Slider = ({ slides, timing, children }) => {
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className={`m-1 h-3 w-3 cursor-pointer rounded-full lg:h-4 lg:w-4 lg:m-1 ${
+                className={`m-1 h-3 w-3 cursor-pointer rounded-full lg:m-1 lg:h-4 lg:w-4 ${
                   currentSlide === index ? 'bg-white' : 'bg-gray-400'
                 }`}
                 onClick={() => setCurrentSlide(index)}

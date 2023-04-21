@@ -8,8 +8,7 @@ export default function OurPurpose() {
           Our Purpose | Schomburg Road Baptist Church Columbus Georgia
         </title>
         <meta name="description" content="Loving Him, Loving Them, Changing Lives!" />
-        <meta name="keywords" content="beliefs, doctrine" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content="purpose, why, missions" />
       </Head>
 
       <h1 className="container mx-auto px-8 md:px-20 mt-4 mb-4 font-headings font-black text-4xl text-secondary border-b-2">
