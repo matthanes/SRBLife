@@ -14,7 +14,7 @@ import {
 import EventCard from '../components/EventCard';
 import { getAllEvents, getAnnouncements } from '../utilities/directus';
 
-export default function Home({events, announcements}) {
+export default function Home({ events, announcements }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
   // useEffect to filter the events for only those that are in the future
   useEffect(() => {
@@ -23,29 +23,42 @@ export default function Home({events, announcements}) {
       const rightNow = new Date();
       return eventDate > rightNow;
     });
-    setFilteredEvents(futureEvents);
+    // filter the futureEvents for events where futureEvents.location is either home or homeyouth
+    const pageEvents = futureEvents.filter((event) => {
+      return event.location === 'home' || event.location === 'homeyouth';
+    });
+    setFilteredEvents(pageEvents);
   }, [events]);
 
-  const slides = announcements.map((announcement) => {
-    return {
-      url: announcement.slide_link,
-      ariaLabelText: announcement.link_label,
-      title: announcement.title,
-      subtitle: announcement.subtitle ?? '',
-      alt: announcement.alt_text,
-      imgLink:
-        'https://srblog.srblife.com/assets/' + announcement.slide.filename_disk,
-      opacity: 0,
-      objectPosition: 'object-center',
-    };
-  });
+  //create a slides array from the announcements if the location is home or homeyouth
+  const slides = announcements
+    .filter((announcement) => {
+      return (
+        announcement.location === 'home' ||
+        announcement.location === 'homeyouth'
+      );
+    })
+    .map((announcement) => {
+      return {
+        url: announcement.slide_link || '',
+        ariaLabelText: announcement.link_label,
+        title: announcement.title,
+        subtitle: announcement.subtitle ?? '',
+        alt: announcement.alt_text,
+        imgLink:
+          'https://srblog.srblife.com/assets/' +
+          announcement.slide.filename_disk,
+        opacity: 0,
+        objectPosition: 'object-center',
+      };
+    });
 
   return (
     <>
       <header className="relative min-h-1/3 sm:min-h-1/2 md:min-h-3/4 xl:min-h-screen">
         <Slider slides={slides} timing={5000}></Slider>
       </header>
-      <div className="container my-8 mx-auto px-4 md:px-12">
+      <div className="container mx-auto my-8 px-4 md:px-12">
         <div className="mb-12 flex flex-wrap justify-center gap-3 md:gap-6">
           <Homecard
             title="7155 Schomburg Road"
@@ -119,11 +132,13 @@ export default function Home({events, announcements}) {
           Upcoming Events
         </h2>
         <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6">
-          {filteredEvents !== []
-            ? filteredEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))
-            : <div>LOADING...</div>}
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))
+          ) : (
+            <div>No upcoming events were found...</div>
+          )}
         </div>
       </div>
     </>
