@@ -9,7 +9,7 @@ const EventCard = ({ event }) => {
     datetime,
     button_link,
     button_text,
-    location,
+    event_location,
   } = event;
 
   datetime = new Date(datetime).toLocaleDateString('en-US', {
@@ -41,7 +41,7 @@ const EventCard = ({ event }) => {
       </div>
       <div className="border-t-2 border-neutral-100 py-3 px-6">
         <div>{datetime}</div>
-        <div>{location}</div>
+        <div>{event_location}</div>
       </div>
     </div>
   );
