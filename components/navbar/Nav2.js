@@ -6,6 +6,7 @@ import NavMobileItem from './NavMobileItem';
 const links = [
   { name: 'Home', target: '/' },
   { name: 'News', target: '/news' },
+  { name: 'Youth', target: '/youth' },
   { name: 'Calendar', target: '/calendar' },
   {
     name: 'About Us',
