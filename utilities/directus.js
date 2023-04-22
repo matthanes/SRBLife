@@ -227,6 +227,7 @@ export const getAllEvents = async () => {
               event_location
               button_link
               button_text
+              location
           }
         }
         `,
@@ -268,6 +269,7 @@ export const getAnnouncements = async () => {
           slide {
               filename_disk
           }
+          location
       }
     }
         `,
