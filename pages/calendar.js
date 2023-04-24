@@ -77,6 +77,7 @@ const Calendar = () => {
             setShowModal(true);
           }}
           ref={calendarRef}
+          fixedWeekCount={false}
         />
       </div>
     ),
