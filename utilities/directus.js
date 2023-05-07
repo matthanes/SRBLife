@@ -310,6 +310,7 @@ export const getSplitScreens = async () => {
           alt
           title
           body
+          reverse
       }
     }
         `,

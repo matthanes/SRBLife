@@ -104,6 +104,7 @@ export default function Youth({ events, announcements, splitScreens }) {
           alt={splitScreen.image.alt}
           title={splitScreen.title}
           body={splitScreen.body}
+          reverse={splitScreen.reverse}
           />
       ))}
 
