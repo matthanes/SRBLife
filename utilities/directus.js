@@ -248,7 +248,7 @@ export const getAnnouncements = async () => {
       ] },
       sort: [ "sort" ]`
       : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "sort" ]`;
-  const events = await fetch('https://srblog.srblife.com/graphql', {
+  const announcements = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -276,7 +276,47 @@ export const getAnnouncements = async () => {
     }),
   });
 
-  const data = await events.json();
+  const data = await announcements.json();
+
+  return data;
+};
+
+export const getSplitScreens = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "sort" ]`
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "sort" ]`;
+  const splitScreens = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+      query {
+        split_screens (${query_filter})
+      {
+          id
+          sort
+          status
+          image {
+            filename_disk
+          }
+          alt
+          title
+          body
+      }
+    }
+        `,
+    }),
+  });
+
+  const data = await splitScreens.json();
 
   return data;
 };

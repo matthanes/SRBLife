@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import srcSet from '../utilities/srcset';
+import imgSrcSet from '../utilities/srcset';
 
 const Slider = ({ slides, timing, children }) => {
   const timerRef = useRef(null);
@@ -51,7 +51,7 @@ const Slider = ({ slides, timing, children }) => {
             index === currentSlide ? 'opacity-1' : 'opacity-0'
           } transition-all duration-1000 ease-in-out`}
           sizes="100vw"
-          srcSet={srcSet(slide.imgLink)}
+          srcSet={imgSrcSet(slide.imgLink)}
         />
       ))}
 

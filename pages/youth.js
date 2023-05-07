@@ -4,9 +4,10 @@ import Slider from '../components/Slider';
 import { FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 import EventCard from '../components/EventCard';
-import { getAllEvents, getAnnouncements } from '../utilities/directus';
+import { getAllEvents, getAnnouncements, getSplitScreens } from '../utilities/directus';
+import SplitScreen from '../components/SplitScreen';
 
-export default function Youth({ events, announcements }) {
+export default function Youth({ events, announcements, splitScreens }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
   // useEffect to filter the events for only those that are in the future
   useEffect(() => {
@@ -91,6 +92,22 @@ export default function Youth({ events, announcements }) {
             href="tel:706-573-0717"
           />
         </div>
+      </div>
+
+      {splitScreens.map((splitScreen) => (
+        <SplitScreen
+          key={splitScreen.id}
+          img={
+            'https://srblog.srblife.com/assets/' +
+            splitScreen.image.filename_disk
+          }
+          alt={splitScreen.image.alt}
+          title={splitScreen.title}
+          body={splitScreen.body}
+          />
+      ))}
+
+      <div className="container mx-auto my-8 px-4 md:px-12">
         <h2 className="mx-auto max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
           Upcoming Events
         </h2>
@@ -111,11 +128,13 @@ export default function Youth({ events, announcements }) {
 export const getStaticProps = async () => {
   const events = await getAllEvents();
   const announcements = await getAnnouncements();
+  const splitScreens = await getSplitScreens();
 
   return {
     props: {
       events: events.data.Events,
       announcements: announcements.data.announcements,
+      splitScreens: splitScreens.data.split_screens,
     },
     revalidate: 60,
   };

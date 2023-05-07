@@ -15,6 +15,7 @@
     "@fullcalendar/google-calendar": "6.0.3",
     "@fullcalendar/list": "6.0.3",
     "@fullcalendar/react": "6.0.3",
+    "classnames": "^2.3.2",
     "eslint-config-next": "^13.3.0",
     "graphql": "^16.6.0",
     "html-react-parser": "^3.0.15",
