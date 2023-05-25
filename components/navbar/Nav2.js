@@ -13,6 +13,7 @@ const links = [
     target: null,
     sublinks: [
       { name: 'Our Beliefs', target: '/ourbeliefs' },
+      { name: 'Our Ministries', target: '/ourministries' },
       { name: 'Our Purpose', target: '/ourpurpose' },
     ],
   },

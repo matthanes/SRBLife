@@ -15,7 +15,7 @@ export default function Salvation() {
       </Head>
 
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
-        <p className="text-4xl px-6">
+        <p className="text-4xl px-6 leading-[3.5rem]">
           “16 For this is how God loved the world: He gave his one and only Son,
           so that everyone who believes in him will not perish but have eternal
           life. 17 God sent his Son into the world not to judge the world, but
@@ -38,7 +38,7 @@ export default function Salvation() {
         </p>
       </div>
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
-        <p className="px-6 text-4xl">There is none righteous, no, not one.</p>
+        <p className="px-6 text-4xl leading-[3.5rem]">There is none righteous, no, not one.</p>
         <p className="px-6 text-xl pt-6">Romans 3:10</p>
       </div>
       <div className="bg-white text-secondary text-xl font-bodytext font-medium py-8 lg:px-64 md:px-20 sm:px-16">
@@ -59,7 +59,7 @@ export default function Salvation() {
         </p>
       </div>
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
-        <p className="px-6 text-4xl">
+        <p className="px-6 text-4xl leading-[3.5rem]">
           He who believes in Me has everlasting life.
         </p>
         <p className="px-6 text-xl pt-6">John 6:47</p>
@@ -89,7 +89,7 @@ export default function Salvation() {
         </p>
       </div>
       <div className="bg-black bg-opacity-60 text-white text-center font-headings py-16 lg:px-64 md:px-20 sm:px-16">
-        <p className="px-6 text-4xl">
+        <p className="px-6 text-4xl leading-[3.5rem]">
           “I am the resurrection and the life. He who believes in Me, though he
           may die, he shall live. And whoever lives and believes in Me shall
           never die. Do you believe this?” She said to Him, “Yes, Lord, I

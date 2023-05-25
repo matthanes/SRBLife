@@ -321,3 +321,45 @@ export const getSplitScreens = async () => {
 
   return data;
 };
+
+export const getMinistries = async () => {
+  const query_filter =
+    process.env.NODE_ENV === 'development'
+      ? `limit: -1, filter: { _or: [
+      { status: { _eq: "published" } },
+      { status: { _eq: "draft" } }
+      ] },
+      sort: [ "sort" ]`
+      : `limit: -1, filter: { status: { _eq: "published" } }, sort: [ "sort" ]`;
+  const ministries = await fetch('https://srblog.srblife.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.DIRECTUS_TOKEN,
+    },
+    body: JSON.stringify({
+      query: `
+      query {
+        ministries (${query_filter})
+      {
+          id
+          sort
+          status
+          ministry_image {
+            filename_disk
+          }
+          alt
+          title
+          description
+          leader
+          leader_email
+      }
+    }
+        `,
+    }),
+  });
+
+  const data = await ministries.json();
+
+  return data;
+};
