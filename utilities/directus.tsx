@@ -98,7 +98,7 @@ export const getSinglePost = async (slug: string) => {
   //   });
   // }
 
-  return singlePost;
+  return {singlePost};
 };
 
 export const getAllPublished = async () => {
