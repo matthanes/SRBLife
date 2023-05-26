@@ -1,8 +1,22 @@
+// import types from types folder
+import {
+  AllAnnouncements,
+  AllAuthors,
+  AllMinistries,
+  AllPosts,
+  AllSplitScreens,
+  AllSRBEvents,
+  DirectusFile,
+  Post,
+  Tag,
+} from '../types/types';
+
 const cdnUrl = 'https://directussrblog.s3.amazonaws.com';
 
-export const getSrcKey = (src) => src.split('/').pop();
+export const getSrcKey = (src: string) => src.split('/').pop();
 
-export const removeParams = (src) => (/\?/.test(src) ? src.split('?')[0] : src);
+export const removeParams = (src: string) =>
+  /\?/.test(src) ? src.split('?')[0] : src;
 
 export const getFiles = async () => {
   const files = await fetch('https://srblog.srblife.com/graphql/system', {
@@ -24,10 +38,12 @@ export const getFiles = async () => {
   });
 
   const data = await files.json();
-  return data.data.files;
+  const filesList: DirectusFile[] = data.data.files;
+
+  return filesList;
 };
 
-export const getSinglePost = async (slug) => {
+export const getSinglePost = async (slug: string) => {
   const blog_posts = await fetch('https://srblog.srblife.com/graphql', {
     method: 'POST',
     headers: {
@@ -66,9 +82,9 @@ export const getSinglePost = async (slug) => {
   });
 
   const data = await blog_posts.json();
-  const singlePost = data.data.blog_posts[0];
+  const singlePost: Post = data.data.blog_posts[0];
 
-  const files = await getFiles();
+  // const files = await getFiles();
 
   // // find images in singlePost.post and replace the src URL with cdnUrl
   // const images = singlePost.post.match(/<img.*?src=".*?".*?>/g);
@@ -82,9 +98,7 @@ export const getSinglePost = async (slug) => {
   //   });
   // }
 
-  return {
-    singlePost,
-  };
+  return singlePost;
 };
 
 export const getAllPublished = async () => {
@@ -136,7 +150,7 @@ export const getAllPublished = async () => {
     }),
   });
 
-  const posts = await blog_posts.json();
+  const posts: AllPosts = await blog_posts.json();
   return posts;
 };
 
@@ -159,8 +173,7 @@ export const getAllTags = async () => {
   });
 
   const data = await tags.json();
-  // for each tag_name in data.data.tags, add to an object
-  const tagList = [];
+  const tagList: Tag[] = [];
   data.data.tags.forEach((tag) => {
     tagList.push(tag.tag_name);
   });
@@ -191,7 +204,7 @@ export const getAllAuthors = async () => {
     }),
   });
 
-  const data = await authors.json();
+  const data: AllAuthors = await authors.json();
 
   return data;
 };
@@ -234,7 +247,7 @@ export const getAllEvents = async () => {
     }),
   });
 
-  const data = await events.json();
+  const data: AllSRBEvents = await events.json();
 
   return data;
 };
@@ -276,7 +289,7 @@ export const getAnnouncements = async () => {
     }),
   });
 
-  const data = await announcements.json();
+  const data: AllAnnouncements = await announcements.json();
 
   return data;
 };
@@ -317,7 +330,7 @@ export const getSplitScreens = async () => {
     }),
   });
 
-  const data = await splitScreens.json();
+  const data: AllSplitScreens = await splitScreens.json();
 
   return data;
 };
@@ -359,7 +372,7 @@ export const getMinistries = async () => {
     }),
   });
 
-  const data = await ministries.json();
+  const data: AllMinistries = await ministries.json();
 
   return data;
 };
