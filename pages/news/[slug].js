@@ -8,7 +8,7 @@ import React from 'react';
 import TagsList from '../../components/blog/TagsList';
 import SocialShare from '../../components/blog/SocialShare';
 
-export const Post = ({ singlePost }) => {
+export const Post = ( singlePost ) => {
   const router = useRouter();
   const base_url = 'https://srblife.com';
   const { title, description, publish_date, author, post, tags, social_media_image } = singlePost;
