@@ -31,11 +31,11 @@ const NavItem = ({ link }) => {
       )}
       {link.sublinks && (
         <ul
-          className={`absolute left-0 top-10 min-w-[175px] bg-primary pt-3 text-gray-100 ${showSublinks ? 'block' : 'hidden'}`}
+          className={`absolute left-0 min-w-[175px] mt-2 bg-primary text-gray-100 transition-all duration-500 ease-in-out ${showSublinks ? 'translate-y-[6.25rem] opacity-100' : 'translate-y-0 opacity-0'}`}
         >
           {link.sublinks.map((sublink) => (
             <li
-              className="list-none px-3 py-4 font-rock-salt font-semibold text-gray-100 hover:bg-secondary hover:text-white"
+              className={`list-none px-3 py-4 font-rock-salt font-semibold text-gray-100 hover:bg-secondary hover:text-white ${showSublinks ? 'block' : 'hidden'}`}
               key={sublink.name}
             >
               <Link href={sublink.target}>{sublink.name}</Link>
