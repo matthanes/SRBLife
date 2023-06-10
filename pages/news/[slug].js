@@ -52,12 +52,12 @@ export const Post = ( singlePost ) => {
             </div>
             <SocialShare title={title} base_url={base_url} router={router} size={34} />
             <Markup markup={post} />
-            <div className="my-10 px-4 md:px-0">
+            <section>
               <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-xl text-primary">
                 Post Tags
               </h3>
               <TagsList tags={tags} />
-            </div>
+            </section>
           </div>
         </div>
       </article>
