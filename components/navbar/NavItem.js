@@ -31,7 +31,7 @@ const NavItem = ({ link }) => {
       )}
       {link.sublinks && (
         <ul
-          className={`absolute left-0 min-w-[175px] mt-2 bg-primary text-gray-100 transition-all duration-500 ease-in-out ${showSublinks ? 'translate-y-[6.25rem] opacity-100' : 'translate-y-0 opacity-0'}`}
+          className={`absolute left-0 top-[1rem] min-w-[175px] bg-primary text-gray-100 transition-all duration-500 ease-in-out ${showSublinks ? 'translate-y-[1.5rem] opacity-100' : 'translate-y-0 opacity-0'}`}
         >
           {link.sublinks.map((sublink) => (
             <li
