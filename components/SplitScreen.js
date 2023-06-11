@@ -19,7 +19,7 @@ const SplitScreen = ({ img, alt, title, body, reverse }) => {
           sizes='(min-width: 1280px) 50vw, 100vw'
         />
       </div>
-      <div className="flex overflow-hidden p-16 xl:basis-1/2">
+      <div className="flex overflow-hidden p-8 text-justify xl:basis-1/2 md:p-16 md:text-left">
         <div className="font-bodytext text-lg">
           {title && <h2 className="mb-6 text-3xl font-bold">{title}</h2>}
           <Markup markup={body} />
