@@ -12,7 +12,7 @@ const SplitScreen = ({ img, alt, title, body, reverse }) => {
     <div className={classes}>
       <div className="flex bg-gradient-to-br from-primary to-indigo-600 xl:basis-1/2">
         <img
-          className="object-cover min-w-full min-h-1/2"
+          className="object-cover min-w-full min-h-1/3"
           src={img}
           alt={alt}
           srcSet={imgSrcSet(img)}
