@@ -38,7 +38,7 @@ export default function OurPurpose({ ministries }) {
       </p>
 
       <div className="bg-primary mt-16 py-16 text-center font-headings text-white sm:px-16 md:px-20 lg:px-64">
-        <p className="px-6 text-4xl leading-[3.5rem]">
+        <p className="px-6 text-2xl leading-10 lg:text-3xl lg:leading-[3rem]">
           11 Now these are the gifts Christ gave to the church: the apostles,
           the prophets, the evangelists, and the pastors and teachers. 12 Their
           responsibility is to equip God's people to do his work and build up
