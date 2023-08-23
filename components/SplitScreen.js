@@ -40,7 +40,7 @@ const SplitScreen = ({ img, alt, title, body, reverse }) => {
         />
       </div>
       <div className="flex overflow-hidden p-8 text-justify md:p-16 md:text-left xl:basis-1/2">
-        <div className="font-bodytext text-lg">
+        <div className="space-y-4 font-bodytext text-lg">
           {title && <h2 className="mb-6 text-3xl font-bold">{title}</h2>}
           {body}
         </div>
