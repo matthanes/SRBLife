@@ -11,9 +11,8 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 
-import EventCard from '../components/EventCard';
 import { getAllEvents, getAnnouncements } from '../utilities/directus';
-import { Swiper, SwiperSlide } from '../components/SwiperWrapper';
+import EventCardCarousel from '../components/EventCardCarousel';
 
 export default function Home({ events, announcements }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -138,32 +137,7 @@ export default function Home({ events, announcements }) {
         Upcoming Events
       </h2>
       {filteredEvents.length > 0 ? (
-        <Swiper
-          slidesPerView={1.5}
-          breakpoints={{
-            768: { slidesPerView: 2.5 },
-            1024: { slidesPerView: 3.5, navigation: { enabled: true } },
-            // 1536: { slidesPerView: 4.5, centeredSlides: false },
-          }}
-          spaceBetween={25}
-          centeredSlides={true}
-          navigation={{
-            enabled: false,
-            disabledClass: 'hidden',
-          }}
-          pagination={{
-            enabled: true,
-            clickable: true,
-          }}
-        >
-          {filteredEvents.map((event) => {
-            return (
-              <SwiperSlide class={'flex h-auto justify-center'} key={event.id}>
-                <EventCard event={event} />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <EventCardCarousel events={filteredEvents} />
       ) : (
         <div>No upcoming events were found...</div>
       )}

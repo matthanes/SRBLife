@@ -4,8 +4,13 @@ import Slider from '../components/Slider';
 import { FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 import EventCard from '../components/EventCard';
-import { getAllEvents, getAnnouncements, getSplitScreens } from '../utilities/directus';
+import {
+  getAllEvents,
+  getAnnouncements,
+  getSplitScreens,
+} from '../utilities/directus';
 import SplitScreen from '../components/SplitScreen';
+import EventCardCarousel from '../components/EventCardCarousel';
 
 export default function Youth({ events, announcements, splitScreens }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -105,23 +110,17 @@ export default function Youth({ events, announcements, splitScreens }) {
           title={splitScreen.title}
           body={splitScreen.body}
           reverse={splitScreen.reverse}
-          />
+        />
       ))}
 
-      <div className="container mx-auto my-8 px-4 md:px-12">
-        <h2 className="mx-auto max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
-          Upcoming Events
-        </h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6">
-          {filteredEvents.length > 0 ? (
-            filteredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))
-          ) : (
-            <div>No upcoming events were found...</div>
-          )}
-        </div>
-      </div>
+      <h2 className="mx-auto mb-6 max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
+        Upcoming Events
+      </h2>
+      {filteredEvents.length > 0 ? (
+        <EventCardCarousel events={filteredEvents} />
+      ) : (
+        <div>No upcoming events were found...</div>
+      )}
     </>
   );
 }
