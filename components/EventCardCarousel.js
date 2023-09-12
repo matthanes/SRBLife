@@ -3,7 +3,6 @@ import EventCard from '../components/EventCard';
 import { Swiper, SwiperSlide } from '../components/SwiperWrapper';
 
 const EventCardCarousel = ({events}) => {
-  console.log(events)
   return (
     <Swiper
           slidesPerView={1.5}
