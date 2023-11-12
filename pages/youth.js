@@ -3,7 +3,6 @@ import Homecard from '../components/Homecard';
 import Slider from '../components/Slider';
 import { FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';
 
-import EventCard from '../components/EventCard';
 import {
   getAllEvents,
   getAnnouncements,
@@ -119,7 +118,9 @@ export default function Youth({ events, announcements, splitScreens }) {
       {filteredEvents.length > 0 ? (
         <EventCardCarousel events={filteredEvents} />
       ) : (
-        <div>No upcoming events were found...</div>
+        <div className="grid place-content-center p-6 text-xl">
+          No upcoming events were found...
+        </div>
       )}
     </>
   );

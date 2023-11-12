@@ -139,7 +139,9 @@ export default function Home({ events, announcements }) {
       {filteredEvents.length > 0 ? (
         <EventCardCarousel events={filteredEvents} />
       ) : (
-        <div>No upcoming events were found...</div>
+        <div className="grid place-content-center p-6 text-xl">
+          No upcoming events were found...
+        </div>
       )}
     </>
   );
