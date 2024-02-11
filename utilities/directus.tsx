@@ -273,6 +273,7 @@ export const getAnnouncements = async () => {
         announcements (${query_filter})
       {
           id
+          end_date
           sort
           title
           alt_text

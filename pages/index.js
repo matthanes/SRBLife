@@ -27,12 +27,22 @@ export default function Home({ events, announcements }) {
     const pageEvents = futureEvents.filter((event) => {
       return event.location === 'home' || event.location === 'homeyouth';
     });
-    // For testing purposes, duplicate the pageEvents so there are at least 8 evnets
+    // For testing purposes, duplicate the pageEvents so there are at least 8 events
     // while (pageEvents.length < 3) {
     //   pageEvents.push(...pageEvents);
     // }
     setFilteredEvents(pageEvents);
   }, [events]);
+
+  // remove any announcements from the array that have an end date that is in the past
+  const now = new Date();
+  announcements = announcements.filter((announcement) => {
+    if (announcement.end_date === null) {
+      return true;
+    }
+    const endDate = new Date(announcement.end_date);
+    return endDate > now;
+  });
 
   //create a slides array from the announcements if the location is home or homeyouth
   const slides = announcements
