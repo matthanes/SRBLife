@@ -29,7 +29,7 @@ const NavItem = ({ link }) => {
       {link.target === null ? (
         <div className="hover:select-none">{link.name}</div>
       ) : (
-        <Link href={link.target}>{link.name}</Link>
+        <Link aria-current={link.target === router.pathname ? "page" : undefined} href={link.target}>{link.name}</Link>
       )}
       {link.sublinks && (
         <button
