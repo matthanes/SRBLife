@@ -39,12 +39,12 @@ const BlogPostList = ({ blog_posts }) => {
   }, [search]);
 
   useEffect(() => {
-    const totalPages = Math.ceil(numPosts / numPostsPerPage);
+    const totalPages = Math.ceil(filteredPosts.length / numPostsPerPage);
     const start = (page - 1) * numPostsPerPage;
     const end = start + numPostsPerPage;
     setTotalPages(totalPages);
     setPageSlice(filteredPosts.slice(start, end));
-  }, [page, search]);
+  }, [page, filteredPosts]);
 
   return (
     <section>

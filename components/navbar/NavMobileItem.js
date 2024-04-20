@@ -33,9 +33,9 @@ const NavMobileItem = ({ link, handleClick }) => {
         )}
       </div>
       {showSublinks && 
-        <ul className={`pt-8 transition-all duration-300 ease-in-out `}>
+        <ul className='mt-4 p-0'>
           {link.sublinks.map((sublink) => (
-            <li className='px-3 py-4'>
+            <li className='px-3 py-4 last:pb-0'>
               <Link onClick={() => handleClick()} href={sublink.target}>{sublink.name}</Link>
             </li>
           ))}

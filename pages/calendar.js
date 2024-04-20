@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -39,27 +39,9 @@ const Calendar = () => {
     };
   }, [isMobile, view]);
 
-  return (
-    <div className="max-w-md sm:container mx-auto sm:px-8 md:px-20 font-bodytext">
-      <Head>
-        <title>
-          Calendar | Schomburg Road Baptist Church Columbus, Georgia
-        </title>
-        <meta name="description" content="Church calendar of events." />
-        <meta name="keywords" content="calendar" />
-      </Head>
-
-      {/* Modal is rendered in _document.js at the #modal-root div */}
-      {showModal && (
-        <Modal
-          modalText={modalText}
-          buttonLeft={'CLOSE'}
-          leftButtonFunc={() => setShowModal(false)}
-          onClose={() => setShowModal(false)}
-        />
-      )}
-
-      <div className="my-4 mx-4 lg:mx-0">
+  const calendarDiv = React.useMemo(
+    () => (
+      <div className="mx-4 my-4 lg:mx-0">
         <FullCalendar
           plugins={[dayGridPlugin, googleCalendarPlugin, listPlugin]}
           initialView={view}
@@ -95,8 +77,33 @@ const Calendar = () => {
             setShowModal(true);
           }}
           ref={calendarRef}
+          fixedWeekCount={false}
         />
       </div>
+    ),
+    []
+  );
+
+  return (
+    <div className="mx-auto max-w-md font-bodytext sm:container sm:px-8 md:px-20">
+      <Head>
+        <title>
+          Calendar | Schomburg Road Baptist Church Columbus, Georgia
+        </title>
+        <meta name="description" content="Church calendar of events." />
+        <meta name="keywords" content="calendar" />
+      </Head>
+
+      {/* Modal is rendered in _document.js at the #modal-root div */}
+      {showModal && (
+        <Modal
+          modalText={modalText}
+          buttonLeft={'CLOSE'}
+          leftButtonFunc={() => setShowModal(false)}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+      {calendarDiv}
     </div>
   );
 };

@@ -13,6 +13,7 @@ const links = [
     target: null,
     sublinks: [
       { name: 'Our Beliefs', target: '/ourbeliefs' },
+      { name: 'Our Ministries', target: '/ourministries' },
       { name: 'Our Purpose', target: '/ourpurpose' },
     ],
   },
@@ -58,11 +59,11 @@ const Nav2 = () => {
         </div>
         <div
           className={
-            (active ? ' fixed h-screen w-full bg-primary ' : ' hidden') +
+            (active ? 'h-screen w-full bg-primary ' : ' hidden') +
             ' lg:hidden'
           }
         >
-          <div className="mt-16 flex flex-col items-center justify-center space-y-1 px-2 pb-3 pt-2">
+          <div className="flex flex-col items-center justify-center space-y-1 px-2 pb-3 pt-2">
             {links.map((link) => (
               <NavMobileItem
                 handleClick={handleClick}

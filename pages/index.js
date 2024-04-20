@@ -5,14 +5,13 @@ import {
   FaClock,
   FaEnvelope,
   FaMapMarkedAlt,
-  FaPhone,
   FaCalendar,
   FaFacebook,
   FaYoutube,
 } from 'react-icons/fa';
 
-import EventCard from '../components/EventCard';
 import { getAllEvents, getAnnouncements } from '../utilities/directus';
+import EventCardCarousel from '../components/EventCardCarousel';
 
 export default function Home({ events, announcements }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -27,8 +26,22 @@ export default function Home({ events, announcements }) {
     const pageEvents = futureEvents.filter((event) => {
       return event.location === 'home' || event.location === 'homeyouth';
     });
+    // For testing purposes, duplicate the pageEvents so there are at least 8 events
+    // while (pageEvents.length < 3) {
+    //   pageEvents.push(...pageEvents);
+    // }
     setFilteredEvents(pageEvents);
   }, [events]);
+
+  // remove any announcements from the array that have an end date that is in the past
+  const now = new Date();
+  announcements = announcements.filter((announcement) => {
+    if (announcement.end_date === null) {
+      return true;
+    }
+    const endDate = new Date(announcement.end_date);
+    return endDate > now;
+  });
 
   //create a slides array from the announcements if the location is home or homeyouth
   const slides = announcements
@@ -76,13 +89,6 @@ export default function Home({ events, announcements }) {
             href="#"
           />
           <Homecard
-            title="Call Us"
-            subtitle="706-561-0193"
-            icon={<FaPhone className="mx-auto block" size="100" />}
-            target="_self"
-            href="tel:706-561-0193"
-          />
-          <Homecard
             title="Email For Info"
             subtitle="info@srblife.com"
             icon={<FaEnvelope className="mx-auto block" size="100" />}
@@ -128,19 +134,17 @@ export default function Home({ events, announcements }) {
             rel="noopener"
           />
         </div>
-        <h2 className="mx-auto max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
-          Upcoming Events
-        </h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-6">
-          {filteredEvents.length > 0 ? (
-            filteredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))
-          ) : (
-            <div>No upcoming events were found...</div>
-          )}
-        </div>
       </div>
+      <h2 className="mx-auto mb-6 max-w-lg border-b-2 border-primary py-6 text-center font-bodytext text-4xl font-bold">
+        Upcoming Events
+      </h2>
+      {filteredEvents.length > 0 ? (
+        <EventCardCarousel events={filteredEvents} />
+      ) : (
+        <div className="grid place-content-center p-6 text-xl">
+          No upcoming events were found...
+        </div>
+      )}
     </>
   );
 }
@@ -154,6 +158,5 @@ export const getStaticProps = async () => {
       events: events.data.Events,
       announcements: announcements.data.announcements,
     },
-    revalidate: 60,
   };
 };

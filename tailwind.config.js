@@ -28,6 +28,9 @@ module.exports = {
       xs: '375px',
       ...defaultTheme.screens,
     },
+    transitionProperty: {
+      'height': 'height',
+    },
     minHeight: {
       0: '0',
       '1/4': '25vh',
