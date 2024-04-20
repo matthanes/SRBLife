@@ -42,7 +42,6 @@ export const getStaticProps = async ({ params }) => {
       postsByTag,
       tag: params.tag,
     },
-    revalidate: 1,
   };
 };
 
@@ -64,7 +63,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
