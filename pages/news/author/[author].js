@@ -9,9 +9,7 @@ export const Author = ({ postsByAuthor, author }) => {
   return (
     <>
       <Head>
-        <title>
-          {title}
-        </title>
+        <title>{title}</title>
         <meta
           name="description"
           content={`All of the Schomburg Road Baptist Church news posts that were written by ${author.name}`}
@@ -33,28 +31,25 @@ export const getStaticProps = async ({ params }) => {
   });
 
   const author = authors.data.authors.filter((author) => {
-    return (
-      author.name.toLowerCase().replace(/\s+/g, '_') === params.author
-    );
+    return author.name.toLowerCase().replace(/\s+/g, '_') === params.author;
   });
-  
+
   return {
     props: {
       postsByAuthor,
-      author: author[0]
+      author: author[0],
     },
-    revalidate: 1,
   };
 };
 
 export const getStaticPaths = async () => {
   const data = await getAllAuthors();
 
-    // for each author_name in data.data.authors, add to an object
-    const authorList = [];
-    data.data.authors.forEach((author) => {
-      authorList.push(author.name.toLowerCase().replace(/\s+/g, '_'));
-    });
+  // for each author_name in data.data.authors, add to an object
+  const authorList = [];
+  data.data.authors.forEach((author) => {
+    authorList.push(author.name.toLowerCase().replace(/\s+/g, '_'));
+  });
 
   const paths = authorList.map((author) => ({
     params: { author: author },
@@ -62,7 +57,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 

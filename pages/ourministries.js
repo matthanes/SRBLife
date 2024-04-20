@@ -82,6 +82,5 @@ export const getStaticProps = async () => {
     props: {
       ministries: ministries.data.ministries,
     },
-    revalidate: 60,
   };
 };

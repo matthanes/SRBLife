@@ -137,6 +137,5 @@ export const getStaticProps = async () => {
       announcements: announcements.data.announcements,
       splitScreens: splitScreens.data.split_screens,
     },
-    revalidate: 60,
   };
 };

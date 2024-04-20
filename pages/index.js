@@ -5,7 +5,6 @@ import {
   FaClock,
   FaEnvelope,
   FaMapMarkedAlt,
-  FaPhone,
   FaCalendar,
   FaFacebook,
   FaYoutube,
@@ -90,13 +89,6 @@ export default function Home({ events, announcements }) {
             href="#"
           />
           <Homecard
-            title="Call Us"
-            subtitle="706-561-0193"
-            icon={<FaPhone className="mx-auto block" size="100" />}
-            target="_self"
-            href="tel:706-561-0193"
-          />
-          <Homecard
             title="Email For Info"
             subtitle="info@srblife.com"
             icon={<FaEnvelope className="mx-auto block" size="100" />}
@@ -166,6 +158,5 @@ export const getStaticProps = async () => {
       events: events.data.Events,
       announcements: announcements.data.announcements,
     },
-    revalidate: 60,
   };
 };

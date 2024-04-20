@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - run: npm ci
       - run: |
@@ -23,7 +23,7 @@ jobs:
           echo NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY=staging_site >> .env.local
           echo NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=staging_site >> .env.local
           echo DIRECTUS_TOKEN=${{secrets.DIRECTUS_TOKEN}} >> .env.local
-          npm run export
+          npm run build
       - uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -8,10 +8,18 @@ import React from 'react';
 import TagsList from '../../components/blog/TagsList';
 import SocialShare from '../../components/blog/SocialShare';
 
-export const Post = ( singlePost ) => {
+export const Post = (singlePost) => {
   const router = useRouter();
   const base_url = 'https://srblife.com';
-  const { title, description, publish_date, author, post, tags, social_media_image } = singlePost;
+  const {
+    title,
+    description,
+    publish_date,
+    author,
+    post,
+    tags,
+    social_media_image,
+  } = singlePost;
 
   const formattedDate = new Date(publish_date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -50,7 +58,12 @@ export const Post = ( singlePost ) => {
               <span className="font-bold">{formattedDate}</span>
               <AuthorAttribution author={author} />
             </div>
-            <SocialShare title={title} base_url={base_url} router={router} size={34} />
+            <SocialShare
+              title={title}
+              base_url={base_url}
+              router={router}
+              size={34}
+            />
             <Markup markup={post} />
             <section>
               <h3 className="mb-4 border-b-2 border-secondary border-opacity-50 pb-2 text-xl text-primary">
@@ -70,7 +83,6 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: singlePost,
-    revalidate: 60,
   };
 };
 
@@ -80,7 +92,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
