@@ -36,7 +36,7 @@ const Slider = ({ slides, timing, children }) => {
   } = slides[currentSlide];
 
   return (
-    <div className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[75vh] lg:min-h-screen">
+    <div className="relative min-h-[35vh] sm:min-h-[50vh] md:min-h-[75vh] lg:min-h-screen">
       {/* Image */}
       {/* map through slides and output ExportedImage Component */}
       {slides.map((slide, index) => (
