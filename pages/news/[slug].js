@@ -37,6 +37,7 @@ export const Post = (singlePost) => {
         </title>
         <meta name="description" content={description} />
         <meta name="keywords" content={tagsList} />
+        <meta name="author" content={author.name || null} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
