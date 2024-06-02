@@ -5,24 +5,32 @@ const Slider = ({ slides, timing, children }) => {
   const timerRef = useRef(null);
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isManualChange, setIsManualChange] = useState(false);
 
   const goToLeft = () => {
+    setIsManualChange(true);
     setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : slides.length - 1);
   };
 
   const goToRight = () => {
+    setIsManualChange(true);
     setCurrentSlide(currentSlide < slides.length - 1 ? currentSlide + 1 : 0);
   };
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setCurrentSlide(currentSlide < slides.length - 1 ? currentSlide + 1 : 0);
-    }, timing);
+    if (isManualChange) {
+      clearInterval(timerRef.current);
+    } else {
+      timerRef.current = setInterval(() => {
+        setCurrentSlide(currentSlide < slides.length - 1 ? currentSlide + 1 : 0);
+      }, timing);
+    }
 
     return () => {
       clearInterval(timerRef.current);
     };
-  }, [currentSlide]);
+  }, [currentSlide, isManualChange]);
+
 
   const {
     url,
@@ -93,7 +101,10 @@ const Slider = ({ slides, timing, children }) => {
                 className={`m-1 h-3 w-3 cursor-pointer rounded-full lg:m-1 lg:h-4 lg:w-4 ${
                   currentSlide === index ? 'bg-white' : 'bg-gray-400'
                 }`}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => {
+                  setIsManualChange(true);
+                  setCurrentSlide(index);
+                }}
               ></div>
             ))}
           </div>
